@@ -13,9 +13,6 @@ class RatingPage : AppCompatActivity() {
         binding = ActivityRatingPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
-
         val transition = supportFragmentManager.beginTransaction()
 
         val argumentos = Bundle()
@@ -30,7 +27,6 @@ class RatingPage : AppCompatActivity() {
         binding.container.addView(fragmento)
         transition.add(fragmento.id, NavigationHeader::class.java, argumentos)
         transition.commit()
-
     }
 
 }
