@@ -1,10 +1,11 @@
-package com.example.sweet_store
+package com.example.sweet_store.page_controll.evaluation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.sweet_store.R
 
 class RatingBox : Fragment() {
 

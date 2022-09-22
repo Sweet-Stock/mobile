@@ -1,12 +1,12 @@
-package com.example.sweet_store
+package com.example.sweet_store.page_controll.navigation
 
-import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.sweet_store.R
 
 class NavigationHeader : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
