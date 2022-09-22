@@ -5,9 +5,15 @@
       <map>
         <entry key="../../Android/Sdk/platforms/android-32/data/res/layout/splash_screen_view.xml" value="0.1" />
         <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1935" />
+        <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/drawable/banner.xml" value="0.166" />
         <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/drawable/ic_splash_scream.xml" value="0.1935" />
         <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/drawable/ic_ux__1__removebg_preview_1.xml" value="0.1935" />
-        <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/drawable/shape.xml" value="0.1935" />
+        <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/layout/activity_rating_page.xml" value="0.16" />
+        <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/layout/fragment_comment_box.xml" value="0.4444444444444444" />
+        <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/layout/fragment_navigation_header.xml" value="0.25" />
+        <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/layout/fragment_rating_box.xml" value="0.25" />
         <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/layout/teste.xml" value="0.358695652173913" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bt_style.xml" value="0.1525" />
