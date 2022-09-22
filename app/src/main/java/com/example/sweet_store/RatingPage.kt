@@ -15,17 +15,28 @@ class RatingPage : AppCompatActivity() {
 
         val transition = supportFragmentManager.beginTransaction()
 
-        val argumentos = Bundle()
-        argumentos.putString("backButton","")
-        argumentos.putString("middleContent","Avaliações")
-        argumentos.putString("pictureScr","")
+        val argumentsHeader = Bundle()
+        argumentsHeader.putString("backButton","")
+        argumentsHeader.putString("middleContent","Avaliações")
+        argumentsHeader.putString("pictureScr","")
+
+        val argumentsCommentBox = Bundle()
+        argumentsCommentBox.putString("picture","")
+        argumentsCommentBox.putString("name","Alyce Lambo")
+        argumentsCommentBox.putString("rating","4,7")
+        argumentsCommentBox.putString("date","25/06/2020")
+        argumentsCommentBox.putString("text","Really convenient and the points system helps benefit loyalty. Some mild glitches here and there, but nothing too egregious. Obviously needs to roll out to more remote.")
 
 
-        val fragmento = FragmentContainerView(applicationContext)
-        fragmento.id = View.generateViewId()
+        val fragmentHeader = FragmentContainerView(applicationContext)
+        val fragmentCommentBox = FragmentContainerView(applicationContext)
+        fragmentHeader.id = View.generateViewId()
+        fragmentCommentBox.id = View.generateViewId()
 
-        binding.container.addView(fragmento)
-        transition.add(fragmento.id, NavigationHeader::class.java, argumentos)
+        binding.containerHeader.addView(fragmentHeader)
+        binding.containerCommentBox.addView(fragmentCommentBox)
+        transition.add(fragmentHeader.id, NavigationHeader::class.java, argumentsHeader)
+        transition.add(fragmentCommentBox.id, CommentBox::class.java, argumentsCommentBox)
         transition.commit()
     }
 

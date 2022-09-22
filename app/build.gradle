@@ -6,7 +6,7 @@ plugins {
 android {
     compileSdk 32
     viewBinding{
-        enabled = true
+         enabled = true
     }
     defaultConfig {
         applicationId "com.example.sweet_store"
