@@ -1,0 +1,154 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="500dp"
+    android:height="500dp"
+    android:viewportWidth="375"
+    android:viewportHeight="375">
+  <group>
+    <clip-path
+        android:pathData="M19.89,133.25L355.14,133.25L355.14,242L19.89,242ZM19.89,133.25"/>
+    <group>
+      <clip-path
+          android:pathData="M193.27,168.04C193.08,183.16 206.71,191.59 216.98,196.61C227.53,201.75 231.07,205.05 231.03,209.66C230.95,216.7 222.62,219.81 214.82,219.93C201.2,220.14 193.29,216.25 187,213.3L182.09,236.3C188.4,239.21 200.1,241.75 212.21,241.87C240.67,241.87 259.28,227.79 259.38,205.96C259.48,178.26 221.16,176.73 221.42,164.35C221.51,160.59 225.08,156.59 232.91,155.57C236.79,155.05 247.49,154.66 259.62,160.26L264.38,138.01C257.86,135.63 249.47,133.35 239.03,133.35C212.26,133.35 193.42,147.62 193.27,168.04M310.14,135.27C304.94,135.27 300.57,138.3 298.62,142.96L257.96,240.23L286.4,240.23L292.05,224.56L326.8,224.56L330.09,240.23L355.14,240.23L333.27,135.27L310.14,135.27M314.11,163.62L322.32,203.04L299.85,203.04L314.11,163.62M158.8,135.27L136.39,240.23L163.48,240.23L185.88,135.27L158.8,135.27M118.72,135.27L90.53,206.71L79.12,145.96C77.78,139.18 72.5,135.27 66.63,135.27L20.53,135.27L19.89,138.31C29.35,140.37 40.1,143.69 46.61,147.24C50.6,149.41 51.74,151.31 53.05,156.46L74.65,240.23L103.28,240.23L147.17,135.27L118.72,135.27"/>
+      <path
+          android:pathData="M19.89,241.87L19.89,133.35L355.14,133.35L355.14,241.87ZM19.89,241.87"
+          android:fillType="nonZero">
+        <aapt:attr name="android:fillColor">
+          <gradient 
+              android:startX="173.43"
+              android:startY="246.2"
+              android:endX="205.01"
+              android:endY="129.11"
+              android:type="linear">
+            <item android:offset="0" android:color="#FF222357"/>
+            <item android:offset="0.02" android:color="#FF222357"/>
+            <item android:offset="0.02" android:color="#FF222357"/>
+            <item android:offset="0.03" android:color="#FF222358"/>
+            <item android:offset="0.04" android:color="#FF222458"/>
+            <item android:offset="0.05" android:color="#FF222459"/>
+            <item android:offset="0.05" android:color="#FF22245A"/>
+            <item android:offset="0.06" android:color="#FF22255A"/>
+            <item android:offset="0.07" android:color="#FF22255B"/>
+            <item android:offset="0.08" android:color="#FF22255C"/>
+            <item android:offset="0.08" android:color="#FF22265C"/>
+            <item android:offset="0.09" android:color="#FF22265D"/>
+            <item android:offset="0.09" android:color="#FF22265D"/>
+            <item android:offset="0.1" android:color="#FF22265D"/>
+            <item android:offset="0.11" android:color="#FF22275E"/>
+            <item android:offset="0.12" android:color="#FF22275F"/>
+            <item android:offset="0.13" android:color="#FF22275F"/>
+            <item android:offset="0.13" android:color="#FF222760"/>
+            <item android:offset="0.14" android:color="#FF222861"/>
+            <item android:offset="0.15" android:color="#FF222861"/>
+            <item android:offset="0.16" android:color="#FF222862"/>
+            <item android:offset="0.16" android:color="#FF222963"/>
+            <item android:offset="0.17" android:color="#FF222963"/>
+            <item android:offset="0.18" android:color="#FF222964"/>
+            <item android:offset="0.19" android:color="#FF222A65"/>
+            <item android:offset="0.2" android:color="#FF222A65"/>
+            <item android:offset="0.2" android:color="#FF222A66"/>
+            <item android:offset="0.21" android:color="#FF232B67"/>
+            <item android:offset="0.22" android:color="#FF232B67"/>
+            <item android:offset="0.23" android:color="#FF232B68"/>
+            <item android:offset="0.23" android:color="#FF232C68"/>
+            <item android:offset="0.24" android:color="#FF232C69"/>
+            <item android:offset="0.25" android:color="#FF232C6A"/>
+            <item android:offset="0.26" android:color="#FF232D6A"/>
+            <item android:offset="0.27" android:color="#FF232D6B"/>
+            <item android:offset="0.27" android:color="#FF232D6C"/>
+            <item android:offset="0.28" android:color="#FF232E6C"/>
+            <item android:offset="0.29" android:color="#FF232E6D"/>
+            <item android:offset="0.3" android:color="#FF232E6E"/>
+            <item android:offset="0.3" android:color="#FF232F6E"/>
+            <item android:offset="0.31" android:color="#FF232F6F"/>
+            <item android:offset="0.32" android:color="#FF232F70"/>
+            <item android:offset="0.33" android:color="#FF233070"/>
+            <item android:offset="0.34" android:color="#FF233071"/>
+            <item android:offset="0.34" android:color="#FF233071"/>
+            <item android:offset="0.35" android:color="#FF233172"/>
+            <item android:offset="0.36" android:color="#FF233173"/>
+            <item android:offset="0.37" android:color="#FF233173"/>
+            <item android:offset="0.38" android:color="#FF233174"/>
+            <item android:offset="0.38" android:color="#FF233275"/>
+            <item android:offset="0.39" android:color="#FF233275"/>
+            <item android:offset="0.4" android:color="#FF233276"/>
+            <item android:offset="0.41" android:color="#FF233377"/>
+            <item android:offset="0.41" android:color="#FF233377"/>
+            <item android:offset="0.42" android:color="#FF233378"/>
+            <item android:offset="0.43" android:color="#FF233479"/>
+            <item android:offset="0.44" android:color="#FF233479"/>
+            <item android:offset="0.45" android:color="#FF23347A"/>
+            <item android:offset="0.45" android:color="#FF23357B"/>
+            <item android:offset="0.46" android:color="#FF23357B"/>
+            <item android:offset="0.47" android:color="#FF23357C"/>
+            <item android:offset="0.48" android:color="#FF23367C"/>
+            <item android:offset="0.48" android:color="#FF23367D"/>
+            <item android:offset="0.49" android:color="#FF23367E"/>
+            <item android:offset="0.5" android:color="#FF23377E"/>
+            <item android:offset="0.51" android:color="#FF23377F"/>
+            <item android:offset="0.52" android:color="#FF243780"/>
+            <item android:offset="0.52" android:color="#FF243880"/>
+            <item android:offset="0.53" android:color="#FF243881"/>
+            <item android:offset="0.54" android:color="#FF243882"/>
+            <item android:offset="0.55" android:color="#FF243982"/>
+            <item android:offset="0.55" android:color="#FF243983"/>
+            <item android:offset="0.56" android:color="#FF243984"/>
+            <item android:offset="0.57" android:color="#FF243A84"/>
+            <item android:offset="0.58" android:color="#FF243A85"/>
+            <item android:offset="0.59" android:color="#FF243A85"/>
+            <item android:offset="0.59" android:color="#FF243B86"/>
+            <item android:offset="0.6" android:color="#FF243B87"/>
+            <item android:offset="0.61" android:color="#FF243B87"/>
+            <item android:offset="0.62" android:color="#FF243B88"/>
+            <item android:offset="0.63" android:color="#FF243C89"/>
+            <item android:offset="0.63" android:color="#FF243C89"/>
+            <item android:offset="0.64" android:color="#FF243C8A"/>
+            <item android:offset="0.65" android:color="#FF243D8B"/>
+            <item android:offset="0.66" android:color="#FF243D8B"/>
+            <item android:offset="0.66" android:color="#FF243D8C"/>
+            <item android:offset="0.67" android:color="#FF243E8D"/>
+            <item android:offset="0.68" android:color="#FF243E8D"/>
+            <item android:offset="0.69" android:color="#FF243E8E"/>
+            <item android:offset="0.7" android:color="#FF243F8E"/>
+            <item android:offset="0.7" android:color="#FF243F8F"/>
+            <item android:offset="0.71" android:color="#FF243F90"/>
+            <item android:offset="0.72" android:color="#FF244090"/>
+            <item android:offset="0.73" android:color="#FF244091"/>
+            <item android:offset="0.73" android:color="#FF244092"/>
+            <item android:offset="0.74" android:color="#FF244192"/>
+            <item android:offset="0.75" android:color="#FF244193"/>
+            <item android:offset="0.76" android:color="#FF244194"/>
+            <item android:offset="0.77" android:color="#FF244294"/>
+            <item android:offset="0.77" android:color="#FF244295"/>
+            <item android:offset="0.78" android:color="#FF244296"/>
+            <item android:offset="0.79" android:color="#FF244396"/>
+            <item android:offset="0.8" android:color="#FF244397"/>
+            <item android:offset="0.8" android:color="#FF244398"/>
+            <item android:offset="0.81" android:color="#FF244498"/>
+            <item android:offset="0.82" android:color="#FF244499"/>
+            <item android:offset="0.83" android:color="#FF254499"/>
+            <item android:offset="0.84" android:color="#FF25459A"/>
+            <item android:offset="0.84" android:color="#FF25459B"/>
+            <item android:offset="0.85" android:color="#FF25459B"/>
+            <item android:offset="0.86" android:color="#FF25459C"/>
+            <item android:offset="0.87" android:color="#FF25469D"/>
+            <item android:offset="0.88" android:color="#FF25469D"/>
+            <item android:offset="0.88" android:color="#FF25469E"/>
+            <item android:offset="0.89" android:color="#FF25479F"/>
+            <item android:offset="0.9" android:color="#FF25479F"/>
+            <item android:offset="0.91" android:color="#FF2547A0"/>
+            <item android:offset="0.91" android:color="#FF2548A1"/>
+            <item android:offset="0.92" android:color="#FF2548A1"/>
+            <item android:offset="0.92" android:color="#FF2548A2"/>
+            <item android:offset="0.93" android:color="#FF2548A2"/>
+            <item android:offset="0.94" android:color="#FF2549A2"/>
+            <item android:offset="0.95" android:color="#FF2549A3"/>
+            <item android:offset="0.95" android:color="#FF2549A4"/>
+            <item android:offset="0.97" android:color="#FF254AA5"/>
+            <item android:offset="1" android:color="#FF254AA5"/>
+          </gradient>
+        </aapt:attr>
+      </path>
+    </group>
+  </group>
+</vector>
