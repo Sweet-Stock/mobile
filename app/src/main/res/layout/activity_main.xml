@@ -10,121 +10,142 @@
 
     <ImageView
         android:layout_width="438dp"
-        android:layout_height="133dp"
+        android:layout_height="105dp"
         android:scaleType="fitStart"
         android:src="@drawable/banner" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/rubik_medium"
-            android:text="Login"
-            android:textColor="@color/primary"
-            android:textSize="36dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:layout_marginBottom="8dp"
-
-            android:fontFamily="@font/rubik_light"
-            android:text="Email"
-            android:textColor="@color/primary"
-            android:textSize="16dp" />
-
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/et_style"
-            android:hint="E-mail"
-            android:padding="20dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/rubik_light"
-            android:inputType="textEmailAddress"
-            android:text="Senha"
-            android:textColor="@color/primary"
-            android:textSize="16dp" />
-
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/et_style"
-            android:hint="*********"
-            android:inputType="textPassword"
-            android:padding="20dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/rubik_medium"
-            android:text="Esqueceu a senha?"
-            android:textAlignment="center"
-            android:textColor="@color/primary"
-            android:textSize="16dp" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginBottom="64dp"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/rubik_medium"
+                android:text="Cadastro"
+                android:textColor="@color/primary"
+                android:textSize="36dp" />
+
+            <ImageView
+                android:layout_width="316dp"
+                android:layout_height="91dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitStart"
+                android:src="@drawable/progress_bar_1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+
+                android:fontFamily="@font/rubik_light"
+                android:text="Nome"
+                android:textColor="@color/primary"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_style"
+                android:hint="Nome"
+                android:padding="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+
+                android:fontFamily="@font/rubik_light"
+                android:text="Email"
+                android:textColor="@color/primary"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_style"
+                android:hint="E-mail"
+                android:padding="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/rubik_light"
+                android:inputType="textEmailAddress"
+                android:text="Senha"
+                android:textColor="@color/primary"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_style"
+                android:hint="*********"
+                android:inputType="textPassword"
+                android:padding="20dp" />
 
             <Button
                 android:layout_width="240dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/bt_style"
-                android:text="Entrar"
+                android:text="Próximo"
                 android:textAlignment="center"
                 android:textColor="#FFFF" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="208dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginBottom="20dp"
-                    android:fontFamily="@font/rubik_medium"
-                    android:text="Ainda não tem uma conta?"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/primary"
-                    android:textSize="16dp" />
+                    android:gravity="center">
 
-                <TextView
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginBottom="20dp"
-                    android:fontFamily="@font/rubik_medium"
-                    android:text="  Cadastre-se"
-                    android:textColor="@color/secondary"
-                    android:textSize="16dp" />
+                    <TextView
+                        android:layout_width="208dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="Já tem uma conta?"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/primary"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="  Login"
+                        android:textColor="@color/secondary"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
             </LinearLayout>
 
+
         </LinearLayout>
-
-
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
