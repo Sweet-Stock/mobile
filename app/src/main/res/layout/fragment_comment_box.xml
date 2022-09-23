@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".page_controll.evaluation.CommentBox">
+    android:layout_marginVertical="5dp"
+    tools:context=".CommentBox">
 
     <LinearLayout
         android:layout_width="match_parent"
