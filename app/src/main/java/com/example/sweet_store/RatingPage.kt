@@ -27,16 +27,23 @@ class RatingPage : AppCompatActivity() {
         argumentsCommentBox.putString("date","25/06/2020")
         argumentsCommentBox.putString("text","Really convenient and the points system helps benefit loyalty. Some mild glitches here and there, but nothing too egregious. Obviously needs to roll out to more remote.")
 
+        val argumentsFooterBar = Bundle()
 
         val fragmentHeader = FragmentContainerView(applicationContext)
         val fragmentCommentBox = FragmentContainerView(applicationContext)
+        val fragmentFooterBar = FragmentContainerView(applicationContext)
+
         fragmentHeader.id = View.generateViewId()
         fragmentCommentBox.id = View.generateViewId()
+        fragmentFooterBar.id = View.generateViewId()
 
         binding.containerHeader.addView(fragmentHeader)
         binding.containerCommentBox.addView(fragmentCommentBox)
+        binding.containerFooterBar.addView(fragmentFooterBar)
+
         transition.add(fragmentHeader.id, NavigationHeader::class.java, argumentsHeader)
         transition.add(fragmentCommentBox.id, CommentBox::class.java, argumentsCommentBox)
+        transition.add(fragmentFooterBar.id, FooterBar::class.java, argumentsFooterBar)
         transition.commit()
     }
 

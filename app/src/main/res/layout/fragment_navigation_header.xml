@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     tools:context=".NavigationHeader"
+    android:layout_marginBottom="5dp"
     >
 
         <ImageView
