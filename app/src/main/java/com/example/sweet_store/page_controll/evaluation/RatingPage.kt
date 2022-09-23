@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.FragmentContainerView
+import com.example.sweet_store.FooterBar
 import com.example.sweet_store.databinding.ActivityRatingPageBinding
 import com.example.sweet_store.page_controll.navigation.NavigationHeader
 
