@@ -25,7 +25,7 @@
             android:name=".SingUpActivity"
             android:exported="false" />
         <activity
-            android:name=".page_controll.evaluation.RatingPage"
+            android:name=".page_controll.rating.RatingPage"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
