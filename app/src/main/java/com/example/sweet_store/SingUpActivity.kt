@@ -18,7 +18,11 @@ class SingUpActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    private val progressCont = 1
+
+    companion object {
+        var progressCont = 1
+    }
+
     fun nextStep(v: View) {
         val ivProgressBar: ImageView = binding.progressBar
         val tvName: TextView = binding.tvName
@@ -43,8 +47,9 @@ class SingUpActivity : AppCompatActivity() {
         val etComplement: EditText = binding.etComplement
         val btBackButton: Button = binding.backButton
 
+        progressCont++
+
         this.verifyStep(
-            this.progressCont.inc(),
             ivProgressBar,
             tvName,
             etName,
@@ -71,7 +76,7 @@ class SingUpActivity : AppCompatActivity() {
     }
 
     private fun verifyStep(
-        cont:Int, ivProgressBar: ImageView,
+        ivProgressBar: ImageView,
         tvName: TextView, etName: EditText,
         tvEmail: TextView, etEmail: EditText,
         tvPassword: TextView, etPassword: EditText,
@@ -82,9 +87,9 @@ class SingUpActivity : AppCompatActivity() {
         tvStreet: TextView, etStreet: EditText,
         tvNumber: TextView, etNumber: EditText,
         tvComplement: TextView, etComplement: EditText,
-        btBackButton:Button
+        btBackButton: Button
     ) {
-        when (cont) {
+        when (progressCont) {
             1 -> {
                 ivProgressBar.setImageResource(R.drawable.progress_bar_1)
 
@@ -149,7 +154,7 @@ class SingUpActivity : AppCompatActivity() {
                 tvEmail.visibility = View.GONE
                 etEmail.visibility = View.GONE
                 etPassword.visibility = View.GONE
-                tvPassword.visibility =View.GONE
+                tvPassword.visibility = View.GONE
 
                 tvProfilePicture.visibility = View.GONE
                 etProfilePicture.visibility = View.GONE
