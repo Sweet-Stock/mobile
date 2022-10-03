@@ -74,7 +74,60 @@ class SingUpActivity : AppCompatActivity() {
             btBackButton
         )
     }
+    fun backStep(v: View) {
+        val ivProgressBar: ImageView = binding.progressBar
+        val tvName: TextView = binding.tvName
+        val etName: EditText = binding.etName
+        val tvEmail: TextView = binding.tvEmail
+        val etEmail: EditText = binding.etEmail
+        val tvPassword: TextView = binding.tvPassword
+        val etPassword: EditText = binding.etPassword
+        val tvProfilePicture: TextView = binding.tvProfilePicture
+        val etProfilePicture: EditText = binding.etProfilePicture
+        val tvProfileType: TextView = binding.tvProfileType
+        val etProfileType: EditText = binding.etProfileType
+        val tvPhone: TextView = binding.tvPhoneNumber
+        val etPhone: EditText = binding.etPhoneNumber
+        val tvCep: TextView = binding.tvCep
+        val etCep: EditText = binding.etCep
+        val tvStreet: TextView = binding.tvStreet
+        val etStreet: EditText = binding.etStreet
+        val tvNumber: TextView = binding.tvStreetNumber
+        val etNumber: EditText = binding.etStreetNumber
+        val tvComplement: TextView = binding.tvComplement
+        val etComplement: EditText = binding.etComplement
+        val btBackButton: Button = binding.backButton
 
+        progressCont--
+
+        this.verifyStep(
+            ivProgressBar,
+            tvName,
+            etName,
+            tvEmail,
+            etEmail,
+            tvPassword,
+            etPassword,
+            tvProfilePicture,
+            etProfilePicture,
+            tvProfileType,
+            etProfileType,
+            tvPhone,
+            etPhone,
+            tvCep,
+            etCep,
+            tvStreet,
+            etStreet,
+            tvNumber,
+            etNumber,
+            tvComplement,
+            etComplement,
+            btBackButton
+        )
+    }
+    private fun trySignUp(){
+
+    }
     private fun verifyStep(
         ivProgressBar: ImageView,
         tvName: TextView, etName: EditText,

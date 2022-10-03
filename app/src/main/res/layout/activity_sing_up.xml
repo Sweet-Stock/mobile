@@ -290,6 +290,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/bt_style"
                     android:text="Voltar"
+                    android:onClick="backStep"
                     android:textAlignment="center"
                     android:textColor="#FFFF"
                     android:visibility="gone" />
