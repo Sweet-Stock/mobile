@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.sweet_store.databinding.ActivityRatingPageBinding
 import com.example.sweet_store.databinding.ActivitySingUpBinding
 
 class SingUpActivity : AppCompatActivity() {
@@ -47,7 +46,7 @@ class SingUpActivity : AppCompatActivity() {
         val etComplement: EditText = binding.etComplement
         val btBackButton: Button = binding.backButton
 
-        progressCont++
+        if (progressCont < 3) progressCont++ else trySignUp()
 
         this.verifyStep(
             ivProgressBar,
@@ -74,6 +73,7 @@ class SingUpActivity : AppCompatActivity() {
             btBackButton
         )
     }
+
     fun backStep(v: View) {
         val ivProgressBar: ImageView = binding.progressBar
         val tvName: TextView = binding.tvName
@@ -98,7 +98,8 @@ class SingUpActivity : AppCompatActivity() {
         val etComplement: EditText = binding.etComplement
         val btBackButton: Button = binding.backButton
 
-        progressCont--
+        if (progressCont > 0) progressCont--
+
 
         this.verifyStep(
             ivProgressBar,
@@ -125,9 +126,11 @@ class SingUpActivity : AppCompatActivity() {
             btBackButton
         )
     }
-    private fun trySignUp(){
+
+    private fun trySignUp() {
 
     }
+
     private fun verifyStep(
         ivProgressBar: ImageView,
         tvName: TextView, etName: EditText,
