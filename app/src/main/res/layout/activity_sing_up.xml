@@ -134,13 +134,14 @@
                 android:textSize="16dp"
                 android:visibility="gone" />
 
-            <EditText
-                android:id="@+id/etProfileType"
+            <Spinner
+                android:id="@+id/spProfileType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_style"
                 android:hint="Moderado"
                 android:padding="20dp"
+                android:spinnerMode="dropdown"
                 android:visibility="gone" />
 
             <TextView
