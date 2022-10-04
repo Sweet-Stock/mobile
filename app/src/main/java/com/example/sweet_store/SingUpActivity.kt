@@ -3,10 +3,8 @@ package com.example.sweet_store
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
+import androidx.core.view.get
 import com.example.sweet_store.databinding.ActivitySingUpBinding
 import com.example.sweet_store.model.address.Address
 import com.example.sweet_store.model.response.UserResponse
@@ -16,6 +14,7 @@ import com.example.sweet_store.service.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import sweet.apisweetstore.enums.ProfileType
 
 class SingUpActivity : AppCompatActivity() {
     private val retrofit = Rest.getInstance()
@@ -24,6 +23,25 @@ class SingUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySingUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val etProfileType: Spinner = binding.spProfileType
+
+        val profileTypes = resources.getStringArray(R.array.ProfileTypes)
+        val profileTypeSpinner = ArrayAdapter(this,android.R.layout.simple_spinner_item,profileTypes)
+
+        etProfileType.adapter = profileTypeSpinner
+
+        etProfileType.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>,
+                                        view: View, position: Int, id: Long) {
+                Toast.makeText(this@SingUpActivity,profileTypes[position], Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // write code to perform some action
+            }
+        }
     }
 
 
@@ -42,7 +60,7 @@ class SingUpActivity : AppCompatActivity() {
         val tvProfilePicture: TextView = binding.tvProfilePicture
         val etProfilePicture: EditText = binding.etProfilePicture
         val tvProfileType: TextView = binding.tvProfileType
-        val etProfileType: EditText = binding.etProfileType
+        val etProfileType: Spinner = binding.spProfileType
         val tvPhone: TextView = binding.tvPhoneNumber
         val etPhone: EditText = binding.etPhoneNumber
         val tvCep: TextView = binding.tvCep
@@ -102,7 +120,7 @@ class SingUpActivity : AppCompatActivity() {
         val tvProfilePicture: TextView = binding.tvProfilePicture
         val etProfilePicture: EditText = binding.etProfilePicture
         val tvProfileType: TextView = binding.tvProfileType
-        val etProfileType: EditText = binding.etProfileType
+        val etProfileType: Spinner = binding.spProfileType
         val tvPhone: TextView = binding.tvPhoneNumber
         val etPhone: EditText = binding.etPhoneNumber
         val tvCep: TextView = binding.tvCep
@@ -190,7 +208,7 @@ class SingUpActivity : AppCompatActivity() {
         tvEmail: TextView, etEmail: EditText,
         tvPassword: TextView, etPassword: EditText,
         tvProfilePicture: TextView, etProfilePicture: EditText,
-        tvProfileType: TextView, etProfileType: EditText,
+        tvProfileType: TextView, etProfileType: Spinner,
         tvPhone: TextView, etPhone: EditText,
         tvCep: TextView, etCep: EditText,
         tvStreet: TextView, etStreet: EditText,

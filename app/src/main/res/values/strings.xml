@@ -2,4 +2,14 @@
     <string name="app_name">Sweet Store</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+<resources>
+    <string name="app_name">Sweet Store</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="ProfileTypes">
+        <item key="MODERATE">Moderado</item>
+        <item key="EDUCATION">Educação Alimentar</item>
+        <item key="COMPULSIVE">Compulsivo</item>
+        <item key="DIABETIC">Diabético</item>
+    </string-array>
 </resources>
