@@ -3,12 +3,10 @@ package com.example.sweet_store
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import com.example.sweet_store.databinding.ActivityRatingPageBinding
+import android.widget.*
+import androidx.core.view.get
 import com.example.sweet_store.databinding.ActivitySingUpBinding
+import sweet.apisweetstore.enums.ProfileType
 
 class SingUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySingUpBinding
@@ -16,6 +14,25 @@ class SingUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySingUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val etProfileType: Spinner = binding.spProfileType
+
+        val profileTypes = resources.getStringArray(R.array.ProfileTypes)
+        val profileTypeSpinner = ArrayAdapter(this,android.R.layout.simple_spinner_item,profileTypes)
+
+        etProfileType.adapter = profileTypeSpinner
+
+        etProfileType.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>,
+                                        view: View, position: Int, id: Long) {
+                Toast.makeText(this@SingUpActivity,profileTypes[position], Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // write code to perform some action
+            }
+        }
     }
 
 
@@ -34,7 +51,7 @@ class SingUpActivity : AppCompatActivity() {
         val tvProfilePicture: TextView = binding.tvProfilePicture
         val etProfilePicture: EditText = binding.etProfilePicture
         val tvProfileType: TextView = binding.tvProfileType
-        val etProfileType: EditText = binding.etProfileType
+        val etProfileType: Spinner = binding.spProfileType
         val tvPhone: TextView = binding.tvPhoneNumber
         val etPhone: EditText = binding.etPhoneNumber
         val tvCep: TextView = binding.tvCep
@@ -47,7 +64,7 @@ class SingUpActivity : AppCompatActivity() {
         val etComplement: EditText = binding.etComplement
         val btBackButton: Button = binding.backButton
 
-        progressCont++
+        if (progressCont < 3) progressCont++ else trySignUp()
 
         this.verifyStep(
             ivProgressBar,
@@ -75,13 +92,70 @@ class SingUpActivity : AppCompatActivity() {
         )
     }
 
+    fun backStep(v: View) {
+        val ivProgressBar: ImageView = binding.progressBar
+        val tvName: TextView = binding.tvName
+        val etName: EditText = binding.etName
+        val tvEmail: TextView = binding.tvEmail
+        val etEmail: EditText = binding.etEmail
+        val tvPassword: TextView = binding.tvPassword
+        val etPassword: EditText = binding.etPassword
+        val tvProfilePicture: TextView = binding.tvProfilePicture
+        val etProfilePicture: EditText = binding.etProfilePicture
+        val tvProfileType: TextView = binding.tvProfileType
+        val etProfileType: Spinner = binding.spProfileType
+        val tvPhone: TextView = binding.tvPhoneNumber
+        val etPhone: EditText = binding.etPhoneNumber
+        val tvCep: TextView = binding.tvCep
+        val etCep: EditText = binding.etCep
+        val tvStreet: TextView = binding.tvStreet
+        val etStreet: EditText = binding.etStreet
+        val tvNumber: TextView = binding.tvStreetNumber
+        val etNumber: EditText = binding.etStreetNumber
+        val tvComplement: TextView = binding.tvComplement
+        val etComplement: EditText = binding.etComplement
+        val btBackButton: Button = binding.backButton
+
+        if (progressCont > 0) progressCont--
+
+
+        this.verifyStep(
+            ivProgressBar,
+            tvName,
+            etName,
+            tvEmail,
+            etEmail,
+            tvPassword,
+            etPassword,
+            tvProfilePicture,
+            etProfilePicture,
+            tvProfileType,
+            etProfileType,
+            tvPhone,
+            etPhone,
+            tvCep,
+            etCep,
+            tvStreet,
+            etStreet,
+            tvNumber,
+            etNumber,
+            tvComplement,
+            etComplement,
+            btBackButton
+        )
+    }
+
+    private fun trySignUp() {
+
+    }
+
     private fun verifyStep(
         ivProgressBar: ImageView,
         tvName: TextView, etName: EditText,
         tvEmail: TextView, etEmail: EditText,
         tvPassword: TextView, etPassword: EditText,
         tvProfilePicture: TextView, etProfilePicture: EditText,
-        tvProfileType: TextView, etProfileType: EditText,
+        tvProfileType: TextView, etProfileType: Spinner,
         tvPhone: TextView, etPhone: EditText,
         tvCep: TextView, etCep: EditText,
         tvStreet: TextView, etStreet: EditText,
