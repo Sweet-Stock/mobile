@@ -27,15 +27,19 @@ class SingUpActivity : AppCompatActivity() {
         val etProfileType: Spinner = binding.spProfileType
 
         val profileTypes = resources.getStringArray(R.array.ProfileTypes)
-        val profileTypeSpinner = ArrayAdapter(this,android.R.layout.simple_spinner_item,profileTypes)
+        val profileTypeSpinner =
+            ArrayAdapter(this, android.R.layout.simple_spinner_item, profileTypes)
 
         etProfileType.adapter = profileTypeSpinner
 
         etProfileType.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>,
-                                        view: View, position: Int, id: Long) {
-                Toast.makeText(this@SingUpActivity,profileTypes[position], Toast.LENGTH_SHORT).show()
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View, position: Int, id: Long
+            ) {
+                Toast.makeText(this@SingUpActivity, profileTypes[position], Toast.LENGTH_SHORT)
+                    .show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -79,7 +83,7 @@ class SingUpActivity : AppCompatActivity() {
             etPassword, etPhone,
             etStreet, etCep,
             etNumber, etComplement,
-            etProfilePicture, etProfileType,
+            etProfilePicture
         )
 
 
@@ -168,24 +172,24 @@ class SingUpActivity : AppCompatActivity() {
         etPassword: EditText, etPhone: EditText,
         etStreet: EditText, etCep: EditText,
         etNumber: EditText, etComplement: EditText,
-        etProfilePicture: EditText, etProfileType: EditText
+        etProfilePicture: EditText,
     ) {
 
         var name: String = etName.text.toString()
         var email: String = etEmail.text.toString()
         var image: String = etProfilePicture.text.toString()
         var phone: String = etPhone.text.toString()
-        var profileType: String = etProfileType.text.toString()
+        //    var profileType: String = etProfileType.text.toString()
         var password: String = etPassword.text.toString()
         var street: String = etStreet.text.toString()
         var cep: String = etCep.text.toString()
         var number: String = etNumber.text.toString()
         var complement: String = etComplement.text.toString()
         var address = Address("", complement, "", number, "", street, cep)
-        val body = UserRequest(name, email, image, phone, profileType, password, address)
+        val body = UserRequest(name, email, image, phone, "", password, address)
         val request = retrofit.create(User::class.java)
 
-            request.register(body).enqueue(
+        request.register(body).enqueue(
             object : Callback<UserResponse> {
                 override fun onResponse(
                     call: Call<UserResponse>,
