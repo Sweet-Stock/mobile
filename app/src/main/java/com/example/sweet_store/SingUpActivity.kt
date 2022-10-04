@@ -8,8 +8,17 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.sweet_store.databinding.ActivitySingUpBinding
+import com.example.sweet_store.model.address.Address
+import com.example.sweet_store.model.response.UserResponse
+import com.example.sweet_store.model.user.UserRequest
+import com.example.sweet_store.rest.Rest
+import com.example.sweet_store.service.User
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SingUpActivity : AppCompatActivity() {
+    private val retrofit = Rest.getInstance()
     private lateinit var binding: ActivitySingUpBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +54,16 @@ class SingUpActivity : AppCompatActivity() {
         val tvComplement: TextView = binding.tvComplement
         val etComplement: EditText = binding.etComplement
         val btBackButton: Button = binding.backButton
+        val btNextButton: Button = binding.nextButton
 
-        if (progressCont < 3) progressCont++ else trySignUp()
+        if (progressCont < 3) progressCont++ else trySignUp(
+            etName, etEmail,
+            etPassword, etPhone,
+            etStreet, etCep,
+            etNumber, etComplement,
+            etProfilePicture, etProfileType,
+        )
+
 
         this.verifyStep(
             ivProgressBar,
@@ -70,7 +87,7 @@ class SingUpActivity : AppCompatActivity() {
             etNumber,
             tvComplement,
             etComplement,
-            btBackButton
+            btBackButton, btNextButton
         )
     }
 
@@ -97,7 +114,7 @@ class SingUpActivity : AppCompatActivity() {
         val tvComplement: TextView = binding.tvComplement
         val etComplement: EditText = binding.etComplement
         val btBackButton: Button = binding.backButton
-
+        val btNextButton: Button = binding.nextButton
         if (progressCont > 0) progressCont--
 
 
@@ -123,11 +140,47 @@ class SingUpActivity : AppCompatActivity() {
             etNumber,
             tvComplement,
             etComplement,
-            btBackButton
+            btBackButton,
+            btNextButton
         )
     }
 
-    private fun trySignUp() {
+    private fun trySignUp(
+        etName: EditText, etEmail: EditText,
+        etPassword: EditText, etPhone: EditText,
+        etStreet: EditText, etCep: EditText,
+        etNumber: EditText, etComplement: EditText,
+        etProfilePicture: EditText, etProfileType: EditText
+    ) {
+
+        var name: String = etName.text.toString()
+        var email: String = etEmail.text.toString()
+        var image: String = etProfilePicture.text.toString()
+        var phone: String = etPhone.text.toString()
+        var profileType: String = etProfileType.text.toString()
+        var password: String = etPassword.text.toString()
+        var street: String = etStreet.text.toString()
+        var cep: String = etCep.text.toString()
+        var number: String = etNumber.text.toString()
+        var complement: String = etComplement.text.toString()
+        var address = Address("", complement, "", number, "", street, cep)
+        val body = UserRequest(name, email, image, phone, profileType, password, address)
+        val request = retrofit.create(User::class.java)
+
+            request.register(body).enqueue(
+            object : Callback<UserResponse> {
+                override fun onResponse(
+                    call: Call<UserResponse>,
+                    response: Response<UserResponse>
+                ) {
+
+                }
+
+                override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+            })
+
 
     }
 
@@ -143,7 +196,8 @@ class SingUpActivity : AppCompatActivity() {
         tvStreet: TextView, etStreet: EditText,
         tvNumber: TextView, etNumber: EditText,
         tvComplement: TextView, etComplement: EditText,
-        btBackButton: Button
+        btBackButton: Button, btNextButton: Button
+
     ) {
         when (progressCont) {
             1 -> {
@@ -227,7 +281,7 @@ class SingUpActivity : AppCompatActivity() {
                 etNumber.visibility = View.VISIBLE
                 tvComplement.visibility = View.VISIBLE
                 etComplement.visibility = View.VISIBLE
-
+                btNextButton.text = "Cadastrar"
                 btBackButton.visibility = View.VISIBLE
             }
             else -> {

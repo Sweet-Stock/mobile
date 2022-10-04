@@ -4,7 +4,6 @@ import java.time.LocalDateTime
 import java.util.*
 
 data class Address(
-    val uuid: String? = UUID.randomUUID().toString(),
     val city: String,
     val complement: String,
     val neighborhood: String,
