@@ -25,9 +25,6 @@
             android:name=".SingUpActivity"
             android:exported="false" />
         <activity
-            android:name=".page_controll.confectionery.Confectionery"
-            android:exported="false" />
-        <activity
             android:name=".page_controll.rating.RatingPage"
             android:exported="false">
             <meta-data
