@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Rest {
     //url base do emulador
-    private val baseUrl = "http://10.0.2.2:3000/api/v1/sweet-store"
+    private val baseUrl = "http://10.0.2.2:3000/api/v1/sweet-store/"
 
     //url base para celular
     //private val baseUrl = "http://IP_DA_MAQUINA:3000/"
