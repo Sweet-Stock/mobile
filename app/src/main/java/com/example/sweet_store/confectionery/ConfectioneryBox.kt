@@ -1,4 +1,5 @@
-package com.example.sweet_store.page_controll.confectionery
+
+package com.example.sweet_store.confectionery
 
 import android.os.Bundle
 import android.view.LayoutInflater

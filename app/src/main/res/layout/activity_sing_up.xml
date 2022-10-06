@@ -56,9 +56,10 @@
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/et_style"
                 android:hint="Nome"
+
                 android:padding="20dp" />
 
             <TextView
@@ -75,9 +76,10 @@
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/et_style"
                 android:hint="E-mail"
+                android:inputType="textEmailAddress"
                 android:padding="20dp" />
 
             <TextView
@@ -87,7 +89,6 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/rubik_light"
-                android:inputType="textEmailAddress"
                 android:text="Senha"
                 android:textColor="@color/primary"
                 android:textSize="16dp" />
@@ -95,7 +96,7 @@
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/et_style"
                 android:hint="*********"
                 android:inputType="textPassword"
@@ -116,7 +117,7 @@
             <EditText
                 android:id="@+id/etProfilePicture"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/et_style"
                 android:hint="Escolha um arquivo"
                 android:padding="20dp"
@@ -137,7 +138,7 @@
             <Spinner
                 android:id="@+id/spProfileType"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/et_style"
                 android:hint="Moderado"
                 android:padding="20dp"
@@ -159,9 +160,10 @@
             <EditText
                 android:id="@+id/etPhoneNumber"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/et_style"
                 android:hint="(11) 91234-5678"
+                android:inputType="phone"
                 android:padding="20dp"
                 android:visibility="gone" />
 
@@ -180,7 +182,7 @@
             <EditText
                 android:id="@+id/etCep"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/et_style"
                 android:hint="Escolha seu CEP"
                 android:padding="20dp"
@@ -201,7 +203,7 @@
             <EditText
                 android:id="@+id/etStreet"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:background="@drawable/et_style"
                 android:hint="Rua"
                 android:padding="20dp"
@@ -234,7 +236,7 @@
                     <EditText
                         android:id="@+id/etStreetNumber"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="70dp"
                         android:background="@drawable/et_style"
                         android:hint="00"
                         android:inputType="number"
@@ -264,7 +266,7 @@
                     <EditText
                         android:id="@+id/etComplement"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="70dp"
                         android:background="@drawable/et_style"
                         android:hint="Complemento"
                         android:padding="20dp"
@@ -272,6 +274,33 @@
                 </LinearLayout>
 
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:text="Ao continuar você concorda com os"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/primary"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:text="  Termos de uso"
+                    android:textColor="@color/secondary"
+                    android:textSize="14dp" />
             </LinearLayout>
 
             <LinearLayout

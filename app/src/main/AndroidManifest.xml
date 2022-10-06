@@ -19,13 +19,17 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".confectionery.Confectionery"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".SingUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".page_controll.confectionery.Confectionery"
             android:exported="false" />
         <activity
             android:name=".page_controll.rating.RatingPage"
