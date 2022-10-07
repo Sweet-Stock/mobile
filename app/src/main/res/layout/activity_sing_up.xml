@@ -279,7 +279,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:gravity="center"
+                android:onClick="goToPageTermsOfUse">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -287,7 +288,7 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/rubik_medium"
-                    android:text="Ao continuar você concorda com os"
+                    android:text="Ao continuar, você concorda com os"
                     android:textAlignment="textEnd"
                     android:textColor="@color/primary"
                     android:textSize="14dp" />
@@ -342,6 +343,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginBottom="24dp"
                 android:gravity="center"
+                android:onClick="goToPageLogin"
                 android:orientation="vertical">
 
                 <LinearLayout

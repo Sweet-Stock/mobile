@@ -1,5 +1,6 @@
 package com.example.sweet_store
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -25,7 +26,6 @@ class SingUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val etProfileType: Spinner = binding.spProfileType
-
         val profileTypes = resources.getStringArray(R.array.ProfileTypes)
         val profileTypeSpinner =
             ArrayAdapter(this, android.R.layout.simple_spinner_item, profileTypes)
@@ -48,6 +48,15 @@ class SingUpActivity : AppCompatActivity() {
         }
     }
 
+
+    fun goToPageLogin(view: View) {
+        val loginPage = Intent(this, LoginActivity::class.java)
+        startActivity(loginPage)
+    }
+    fun goToPageTermsOfUse(view: View) {
+        val termsOfUsePage = Intent(this, ActivityWebView::class.java)
+        startActivity(termsOfUsePage)
+    }
 
     companion object {
         var progressCont = 1
