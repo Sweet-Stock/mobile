@@ -1,20 +1,18 @@
-package com.example.sweet_store.page_controll.confectionery
+package com.example.sweet_store.confectionery
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.FragmentContainerView
-import com.example.sweet_store.databinding.ActivityConfectioneryPageBinding
+import com.example.sweet_store.databinding.ActivityConfectioneryBinding
 import com.example.sweet_store.page_controll.navigation.FooterBar
-import com.example.sweet_store.databinding.ActivityRatingPageBinding
 import com.example.sweet_store.page_controll.navigation.NavigationHeader
-import com.example.sweet_store.page_controll.rating.CommentBox
 
 class Confectionery : AppCompatActivity() {
-    private lateinit var binding: ActivityConfectioneryPageBinding
+    private lateinit var binding: ActivityConfectioneryBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityConfectioneryPageBinding.inflate(layoutInflater)
+        binding = ActivityConfectioneryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val transition = supportFragmentManager.beginTransaction()

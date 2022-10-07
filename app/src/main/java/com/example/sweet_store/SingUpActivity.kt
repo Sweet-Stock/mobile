@@ -1,10 +1,12 @@
 package com.example.sweet_store
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.core.view.get
+import com.example.sweet_store.confectionery.Confectionery
 import com.example.sweet_store.databinding.ActivitySingUpBinding
 import com.example.sweet_store.model.address.Address
 import com.example.sweet_store.model.response.UserResponse
@@ -25,7 +27,6 @@ class SingUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val etProfileType: Spinner = binding.spProfileType
-
         val profileTypes = resources.getStringArray(R.array.ProfileTypes)
         val profileTypeSpinner =
             ArrayAdapter(this, android.R.layout.simple_spinner_item, profileTypes)
@@ -48,6 +49,15 @@ class SingUpActivity : AppCompatActivity() {
         }
     }
 
+
+    fun goToPageLogin(view: View) {
+        val loginPage = Intent(this@SingUpActivity, LoginActivity::class.java)
+        startActivity(loginPage)
+    }
+    fun goToPageTermsOfUse(view: View) {
+        val termsOfUsePage = Intent(this@SingUpActivity, ActivityWebView::class.java)
+        startActivity(termsOfUsePage)
+    }
 
     companion object {
         var progressCont = 1
@@ -78,14 +88,20 @@ class SingUpActivity : AppCompatActivity() {
         val btBackButton: Button = binding.backButton
         val btNextButton: Button = binding.nextButton
 
-        if (progressCont < 3) progressCont++ else trySignUp(
-            etName, etEmail,
-            etPassword, etPhone,
-            etStreet, etCep,
-            etNumber, etComplement,
-            etProfilePicture
-        )
-
+        if (progressCont < 3){
+            progressCont++
+        }else if (progressCont == 3){
+            trySignUp(
+                etName, etEmail,
+                etPassword, etPhone,
+                etStreet, etCep,
+                etNumber, etComplement,
+                etProfilePicture
+            )
+        }
+        else if (progressCont > 3){
+            return
+        }
 
         this.verifyStep(
             ivProgressBar,
@@ -186,7 +202,7 @@ class SingUpActivity : AppCompatActivity() {
         var number: String = etNumber.text.toString()
         var complement: String = etComplement.text.toString()
         var address = Address("", complement, "", number, "", street, cep)
-        val body = UserRequest(name, email, image, phone, "", password, address)
+        val body = UserRequest(name, email, image, phone, "MODERATE", password, address)
         val request = retrofit.create(User::class.java)
 
         request.register(body).enqueue(
@@ -195,10 +211,13 @@ class SingUpActivity : AppCompatActivity() {
                     call: Call<UserResponse>,
                     response: Response<UserResponse>
                 ) {
-
+                    val loginPage = Intent(this@SingUpActivity, Confectionery::class.java)
+                    startActivity(loginPage)
                 }
 
                 override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                    t.cause
+
                     TODO("Not yet implemented")
                 }
             })
