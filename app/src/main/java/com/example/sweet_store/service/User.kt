@@ -10,10 +10,10 @@ import retrofit2.http.POST
 
 interface User {
 
-    @POST("/login")
+    @POST("user/login")
     fun login( @Body body: LoginRequest): Call<LoginResponse>
 
-    @POST("/register")
+    @POST("user/register")
     fun register( @Body body: UserRequest): Call<UserResponse>
 
 }

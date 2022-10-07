@@ -20,10 +20,10 @@ class ActivityWebView : AppCompatActivity() {
 
         webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                view?.loadUrl("https://www.google.co.in/")
+                view?.loadUrl("http://54.172.80.135/")
                 return true
             }
         }
-        webView.loadUrl("https://www.google.co.in/")
+        webView.loadUrl("http://54.172.80.135/")
     }
 }
