@@ -1,10 +1,6 @@
 package com.example.sweet_store.model.user
 
 import com.example.sweet_store.model.address.Address
-import sweet.apisweetstore.enums.AuthType
-import sweet.apisweetstore.enums.ProfileType
-import java.time.LocalDateTime
-import java.util.*
 
 data class UserRequest(
     val name: String,

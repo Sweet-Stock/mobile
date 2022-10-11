@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import androidx.core.view.get
 import com.example.sweet_store.confectionery.Confectionery
 import com.example.sweet_store.databinding.ActivitySingUpBinding
+import com.example.sweet_store.enums.ProfileType
 import com.example.sweet_store.model.address.Address
 import com.example.sweet_store.model.response.UserResponse
 import com.example.sweet_store.model.user.UserRequest
@@ -16,11 +16,12 @@ import com.example.sweet_store.service.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import sweet.apisweetstore.enums.ProfileType
 
 class SingUpActivity : AppCompatActivity() {
     private val retrofit = Rest.getInstance()
+    private val retrofitCep = Rest.getInstanceCep()
     private lateinit var binding: ActivitySingUpBinding
+    private lateinit var profileType :String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySingUpBinding.inflate(layoutInflater)
@@ -29,7 +30,7 @@ class SingUpActivity : AppCompatActivity() {
         val etProfileType: Spinner = binding.spProfileType
         val profileTypes = resources.getStringArray(R.array.ProfileTypes)
         val profileTypeSpinner =
-            ArrayAdapter(this, android.R.layout.simple_spinner_item, profileTypes)
+            ArrayAdapter(this, android.R.layout.select_dialog_item, profileTypes)
 
         etProfileType.adapter = profileTypeSpinner
 
@@ -39,14 +40,20 @@ class SingUpActivity : AppCompatActivity() {
                 parent: AdapterView<*>,
                 view: View, position: Int, id: Long
             ) {
-                Toast.makeText(this@SingUpActivity, profileTypes[position], Toast.LENGTH_SHORT)
-                    .show()
+                profileType = getProfileType(profileTypes[position]).toString()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
                 // write code to perform some action
             }
         }
+
+        val etCep: EditText = binding.etCep
+
+        //etCep.onKeyDown()
+
+
+
     }
 
 
@@ -202,7 +209,7 @@ class SingUpActivity : AppCompatActivity() {
         var number: String = etNumber.text.toString()
         var complement: String = etComplement.text.toString()
         var address = Address("", complement, "", number, "", street, cep)
-        val body = UserRequest(name, email, image, phone, "MODERATE", password, address)
+        val body = UserRequest(name, email, image, phone, this.profileType, password, address)
         val request = retrofit.create(User::class.java)
 
         request.register(body).enqueue(
@@ -328,6 +335,16 @@ class SingUpActivity : AppCompatActivity() {
             else -> {
                 print("x is neither 1 nor 2")
             }
+        }
+    }
+
+    private fun getProfileType(profileType:String): ProfileType? {
+        return when (profileType) {
+            "Moderado" -> ProfileType.MODERATE
+            "Educação Alimentar" -> ProfileType.EDUCATION
+            "Compulsivo" -> ProfileType.COMPULSIVE
+            "Diabético" -> ProfileType.DIABETIC
+            else -> null
         }
     }
 }

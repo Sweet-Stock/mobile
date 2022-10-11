@@ -1,7 +1,7 @@
 package com.example.sweet_store.model.response
 
 import sweet.apisweetstore.enums.AuthType
-import sweet.apisweetstore.enums.ProfileType
+import com.example.sweet_store.enums.ProfileType
 
 data class UserResponse(
     val uuid: String,
