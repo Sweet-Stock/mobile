@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".activityErroPage">
+
+    <ImageView
+        android:layout_marginTop="32dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:src="@drawable/connection_lost" />
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/primary"
+        android:text="@string/error_title"
+        android:fontFamily="@font/rubik_medium"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/text_error"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:fontFamily="@font/rubik_medium"
+        android:textSize="16sp" />
+
+</LinearLayout>

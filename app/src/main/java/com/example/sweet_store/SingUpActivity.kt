@@ -54,6 +54,7 @@ class SingUpActivity : AppCompatActivity() {
         val loginPage = Intent(this@SingUpActivity, LoginActivity::class.java)
         startActivity(loginPage)
     }
+
     fun goToPageTermsOfUse(view: View) {
         val termsOfUsePage = Intent(this@SingUpActivity, ActivityWebView::class.java)
         startActivity(termsOfUsePage)
@@ -88,9 +89,9 @@ class SingUpActivity : AppCompatActivity() {
         val btBackButton: Button = binding.backButton
         val btNextButton: Button = binding.nextButton
 
-        if (progressCont < 3){
+        if (progressCont < 3) {
             progressCont++
-        }else if (progressCont == 3){
+        } else if (progressCont == 3) {
             trySignUp(
                 etName, etEmail,
                 etPassword, etPhone,
@@ -98,8 +99,7 @@ class SingUpActivity : AppCompatActivity() {
                 etNumber, etComplement,
                 etProfilePicture
             )
-        }
-        else if (progressCont > 3){
+        } else if (progressCont > 3) {
             return
         }
 
@@ -211,14 +211,20 @@ class SingUpActivity : AppCompatActivity() {
                     call: Call<UserResponse>,
                     response: Response<UserResponse>
                 ) {
-                    val loginPage = Intent(this@SingUpActivity, Confectionery::class.java)
-                    startActivity(loginPage)
+                    if (response.code() == 400) {
+                        binding.etEmail.error = "Email já cadastrado, realize seu login :) "
+                    } else if (response.code() == 201) {
+                        val loginPage = Intent(this@SingUpActivity, Confectionery::class.java)
+                        startActivity(loginPage)
+                        println(response)
+                    }
+
                 }
 
                 override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                    t.cause
-
-                    TODO("Not yet implemented")
+                    val errorPage = Intent(this@SingUpActivity, activityErroPage::class.java)
+                    errorPage.putExtra("error", t.toString())
+                    startActivity(errorPage)
                 }
             })
 
