@@ -13,6 +13,7 @@ import com.example.sweet_store.databinding.ActivitySingUpBinding
 import com.example.sweet_store.enums.ProfileType
 import com.example.sweet_store.model.address.Address
 import com.example.sweet_store.model.response.UserResponse
+import com.example.sweet_store.model.response.ViaCepResponse
 import com.example.sweet_store.model.user.UserRequest
 import com.example.sweet_store.rest.Rest
 import com.example.sweet_store.service.User
@@ -24,7 +25,13 @@ class SingUpActivity : AppCompatActivity() {
     private val retrofit = Rest.getInstance()
     private val retrofitCep = Rest.getInstanceCep()
     private lateinit var binding: ActivitySingUpBinding
-    private lateinit var profileType :String
+    private lateinit var profileType: String
+
+    companion object {
+        var progressCont = 1
+        var address = Address()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySingUpBinding.inflate(layoutInflater)
@@ -57,16 +64,40 @@ class SingUpActivity : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable) {}
 
-            override fun beforeTextChanged(s: CharSequence, start: Int,
-                                           count: Int, after: Int) {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+
             }
 
-            override fun onTextChanged(s: CharSequence, start: Int,
-                                       before: Int, count: Int) {
-                Toast.makeText(this@SingUpActivity,s.toString(),Toast.LENGTH_SHORT).show()
+            override fun onTextChanged(
+                s: CharSequence, start: Int,
+                before: Int, count: Int
+            ) {
+                if(s.length == 8) {
+                    val request = retrofitCep.create(User::class.java)
+                    request.getCep(s.toString()).enqueue(
+                        object : Callback<ViaCepResponse> {
+                            override fun onResponse(
+                                call: Call<ViaCepResponse>,
+                                response: Response<ViaCepResponse>
+                            ) {
+                                address.cep = response.body()?.cep
+                                address.city = response.body()?.localidade
+                                address.neighborhood = response.body()?.bairro
+                                address.state = response.body()?.uf
+                                address.street = response.body()?.logradouro
+                               binding.etStreet.setText(response.body()?.logradouro)
+
+                            }
+
+                            override fun onFailure(call: Call<ViaCepResponse>, t: Throwable) {
+                                Toast.makeText(this@SingUpActivity, "deu ruim", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    )
+
+                }
             }
         })
-
 
 
     }
@@ -80,10 +111,6 @@ class SingUpActivity : AppCompatActivity() {
     fun goToPageTermsOfUse(view: View) {
         val termsOfUsePage = Intent(this@SingUpActivity, ActivityWebView::class.java)
         startActivity(termsOfUsePage)
-    }
-
-    companion object {
-        var progressCont = 1
     }
 
     fun nextStep(v: View) {
@@ -223,7 +250,9 @@ class SingUpActivity : AppCompatActivity() {
         var cep: String = etCep.text.toString()
         var number: String = etNumber.text.toString()
         var complement: String = etComplement.text.toString()
-        var address = Address("", complement, "", number, "", street, cep)
+        address.number = number
+        address.complement = complement
+        address.street = street
         val body = UserRequest(name, email, image, phone, this.profileType, password, address)
         val request = retrofit.create(User::class.java)
 
@@ -249,7 +278,6 @@ class SingUpActivity : AppCompatActivity() {
                     startActivity(errorPage)
                 }
             })
-
 
 
     }
@@ -360,7 +388,7 @@ class SingUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun getProfileType(profileType:String): ProfileType? {
+    private fun getProfileType(profileType: String): ProfileType? {
         return when (profileType) {
             "Moderado" -> ProfileType.MODERATE
             "Educação Alimentar" -> ProfileType.EDUCATION

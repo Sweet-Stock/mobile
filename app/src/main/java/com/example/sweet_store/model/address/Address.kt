@@ -4,11 +4,11 @@ import java.time.LocalDateTime
 import java.util.*
 
 data class Address(
-    val city: String,
-    val complement: String,
-    val neighborhood: String,
-    val number: String,
-    val state: String,
-    val street: String,
-    val cep: String
+    var city: String? = "",
+    var complement: String? = "",
+    var neighborhood: String? = "",
+    var number: String? = "",
+    var state: String? = "",
+    var street: String? = "",
+    var cep: String? = ""
 )
