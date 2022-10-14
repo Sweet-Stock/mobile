@@ -3,6 +3,9 @@ package com.example.sweet_store
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.View
 import android.widget.*
 import com.example.sweet_store.confectionery.Confectionery
@@ -50,7 +53,19 @@ class SingUpActivity : AppCompatActivity() {
 
         val etCep: EditText = binding.etCep
 
-        //etCep.onKeyDown()
+        etCep.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {}
+
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+                Toast.makeText(this@SingUpActivity,s.toString(),Toast.LENGTH_SHORT).show()
+            }
+        })
 
 
 
@@ -234,6 +249,7 @@ class SingUpActivity : AppCompatActivity() {
                     startActivity(errorPage)
                 }
             })
+
 
 
     }
