@@ -16,7 +16,6 @@ import com.example.sweet_store.model.request.LoginRequest
 import com.example.sweet_store.model.response.LoginResponse
 import com.example.sweet_store.model.response.UserResponse
 import com.example.sweet_store.model.user.UserRequest
-import com.example.sweet_store.rest.Rest
 import com.example.sweet_store.service.User
 import retrofit2.Call
 import retrofit2.Callback

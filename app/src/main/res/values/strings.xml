@@ -10,8 +10,8 @@
     <string name="hint_password">*********</string>
     <string name="forgot_password">Esqueceu a senha?</string>
     <string name="entry">Entrar</string>
-    <string name="bt_create_account">Ainda não tem uma conta?</string>
-    <string name="create_account_2">Cadastre-se</string>
+    <string name="bt_create_account">Ainda não tem uma conta? </string>
+    <string name="create_account_2"> Cadastre-se</string>
     <string-array name="ProfileTypes">
         <item key="MODERATE">Moderado</item>
         <item key="EDUCATION">Educação Alimentar</item>
