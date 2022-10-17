@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextUtils
 import android.text.TextWatcher
+import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
 import android.widget.*
@@ -15,10 +17,12 @@ import com.example.sweet_store.model.address.Address
 import com.example.sweet_store.model.response.UserResponse
 import com.example.sweet_store.model.response.ViaCepResponse
 import com.example.sweet_store.model.user.UserRequest
+import com.example.sweet_store.rest.Rest
 import com.example.sweet_store.service.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.regex.Pattern
 
 class SingUpActivity : AppCompatActivity() {
     private val retrofit = Rest.getInstance()
@@ -31,6 +35,8 @@ class SingUpActivity : AppCompatActivity() {
         var address = Address()
     }
 
+    private val REG = "^(\\+91[\\-\\s]?)?[0]?(91)?[789]\\d{9}\$"
+    private var PATTERN: Pattern = Pattern.compile(REG)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySingUpBinding.inflate(layoutInflater)
@@ -71,7 +77,7 @@ class SingUpActivity : AppCompatActivity() {
                 s: CharSequence, start: Int,
                 before: Int, count: Int
             ) {
-                if(s.length == 8) {
+                if (s.length == 8) {
                     val request = retrofitCep.create(User::class.java)
                     request.getCep(s.toString()).enqueue(
                         object : Callback<ViaCepResponse> {
@@ -84,12 +90,13 @@ class SingUpActivity : AppCompatActivity() {
                                 address.neighborhood = response.body()?.bairro
                                 address.state = response.body()?.uf
                                 address.street = response.body()?.logradouro
-                               binding.etStreet.setText(response.body()?.logradouro)
+                                binding.etStreet.setText(response.body()?.logradouro)
 
                             }
 
                             override fun onFailure(call: Call<ViaCepResponse>, t: Throwable) {
-                                Toast.makeText(this@SingUpActivity, "deu ruim", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this@SingUpActivity, "deu ruim", Toast.LENGTH_SHORT)
+                                    .show()
                             }
                         }
                     )
@@ -110,6 +117,39 @@ class SingUpActivity : AppCompatActivity() {
     fun goToPageTermsOfUse(view: View) {
         val termsOfUsePage = Intent(this@SingUpActivity, ActivityWebView::class.java)
         startActivity(termsOfUsePage)
+    }
+
+    private fun isValidCep(cep: String): Boolean {
+        (cep.length < 8 || cep.length > 8)
+        return false
+    }
+
+    private fun isValidEmail(email: String): Boolean {
+        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+
+
+    private fun isValidStreet(street: String): Boolean {
+        (street.isEmpty())
+        return false
+    }
+
+    private fun isValidNumber(number: String): Boolean {
+        (number.isEmpty())
+        return false
+    }
+
+    fun CharSequence.isPhoneNumber(): Boolean = PATTERN.matcher(this).find()
+
+    private fun isValidPassword(password: String): Boolean {
+        if (password.length < 8) return false
+        if (password.firstOrNull { it.isDigit() } == null) return false
+        if (password.filter { it.isLetter() }.firstOrNull { it.isUpperCase() } == null) return false
+        if (password.filter { it.isLetter() }.firstOrNull { it.isLowerCase() } == null) return false
+        if (password.firstOrNull { !it.isLetterOrDigit() } == null) return false
+
+        return true
     }
 
     fun nextStep(v: View) {
@@ -137,16 +177,49 @@ class SingUpActivity : AppCompatActivity() {
         val btBackButton: Button = binding.backButton
         val btNextButton: Button = binding.nextButton
 
-        if (progressCont < 3) {
-            progressCont++
+        if (progressCont == 1) {
+            if (etName.text.toString().isEmpty()) {
+                etName.error = "Insira um nome válido"
+            }
+            if (!isValidEmail(etEmail.text.toString())) {
+                etEmail.error = "Insira um email válido"
+            }
+            if (!isValidPassword(etPassword.text.toString())) {
+                etPassword.error = "Insira uma senha válida"
+            }
+            if (etName.text.toString().isNotEmpty() && isValidPassword(etPassword.text.toString()) && isValidEmail(
+                    etEmail.text.toString()
+                )
+            ) {
+                progressCont++
+            }
+        } else if (progressCont == 2) {
+            if (!etPhone.text.toString().isPhoneNumber()) {
+                etPhone.error = "Insira um número válido"
+            }
+            if (etPhone.text.toString().isPhoneNumber()){
+                progressCont++
+            }
         } else if (progressCont == 3) {
-            trySignUp(
-                etName, etEmail,
-                etPassword, etPhone,
-                etStreet, etCep,
-                etNumber, etComplement,
-                etProfilePicture
-            )
+            if (etStreet.text.toString().isEmpty()) {
+                etStreet.error = "Insira uma rua para continuar"
+            }
+            if (etNumber.text.toString().isEmpty()) {
+                etNumber.error = "Insira um número para continuar"
+            }
+            if (!isValidCep(etCep.text.toString())) {
+                etEmail.error = "Insira um CEP válido"
+            }
+            if (etNumber.text.toString().isNotEmpty() && etStreet.text.toString().isNotEmpty() && isValidCep(etCep.text.toString())){
+                    trySignUp(
+                        etName, etEmail,
+                        etPassword, etPhone,
+                        etStreet, etCep,
+                        etNumber, etComplement,
+                        etProfilePicture
+                    )
+                }
+
         } else if (progressCont > 3) {
             return
         }

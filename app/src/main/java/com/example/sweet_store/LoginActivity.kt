@@ -16,6 +16,7 @@ import com.example.sweet_store.model.request.LoginRequest
 import com.example.sweet_store.model.response.LoginResponse
 import com.example.sweet_store.model.response.UserResponse
 import com.example.sweet_store.model.user.UserRequest
+import com.example.sweet_store.rest.Rest
 import com.example.sweet_store.service.User
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        this.binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
     }
@@ -43,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
         return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-    internal fun isValidPassword(password: String): Boolean {
+    private fun isValidPassword(password: String): Boolean {
         if (password.length < 8) return false
         if (password.firstOrNull { it.isDigit() } == null) return false
         if (password.filter { it.isLetter() }.firstOrNull { it.isUpperCase() } == null) return false
