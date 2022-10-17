@@ -10,6 +10,10 @@
         android:icon="@drawable/ic_baseline_business_24"
         android:title="Confeitarias" />
     <item
+        android:id="@+id/order"
+        android:icon="@drawable/ic_baseline_request_page_24"
+        android:title="Pedidos" />
+    <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Perfil" />

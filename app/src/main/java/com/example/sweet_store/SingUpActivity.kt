@@ -35,8 +35,7 @@ class SingUpActivity : AppCompatActivity() {
         var address = Address()
     }
 
-    private val REG = "^(\\+91[\\-\\s]?)?[0]?(91)?[789]\\d{9}\$"
-    private var PATTERN: Pattern = Pattern.compile(REG)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySingUpBinding.inflate(layoutInflater)
@@ -124,10 +123,15 @@ class SingUpActivity : AppCompatActivity() {
         return false
     }
 
+    private fun isValidPhone(phone: String): Boolean {
+        (phone.length < 11)
+        return false
+    }
+
+
     private fun isValidEmail(email: String): Boolean {
         return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
-
 
 
     private fun isValidStreet(street: String): Boolean {
@@ -140,7 +144,6 @@ class SingUpActivity : AppCompatActivity() {
         return false
     }
 
-    fun CharSequence.isPhoneNumber(): Boolean = PATTERN.matcher(this).find()
 
     private fun isValidPassword(password: String): Boolean {
         if (password.length < 8) return false
@@ -187,17 +190,18 @@ class SingUpActivity : AppCompatActivity() {
             if (!isValidPassword(etPassword.text.toString())) {
                 etPassword.error = "Insira uma senha válida"
             }
-            if (etName.text.toString().isNotEmpty() && isValidPassword(etPassword.text.toString()) && isValidEmail(
+            if (etName.text.toString()
+                    .isNotEmpty() && isValidPassword(etPassword.text.toString()) && isValidEmail(
                     etEmail.text.toString()
                 )
             ) {
                 progressCont++
             }
         } else if (progressCont == 2) {
-            if (!etPhone.text.toString().isPhoneNumber()) {
+            if (etPhone.text.toString().isEmpty()) {
                 etPhone.error = "Insira um número válido"
             }
-            if (etPhone.text.toString().isPhoneNumber()){
+            if (etPhone.text.toString().isNotEmpty()) {
                 progressCont++
             }
         } else if (progressCont == 3) {
@@ -207,18 +211,20 @@ class SingUpActivity : AppCompatActivity() {
             if (etNumber.text.toString().isEmpty()) {
                 etNumber.error = "Insira um número para continuar"
             }
-            if (!isValidCep(etCep.text.toString())) {
-                etEmail.error = "Insira um CEP válido"
+            if (etCep.text.toString().isEmpty()) {
+                etCep.error = "Insira um CEP válido"
             }
-            if (etNumber.text.toString().isNotEmpty() && etStreet.text.toString().isNotEmpty() && isValidCep(etCep.text.toString())){
-                    trySignUp(
-                        etName, etEmail,
-                        etPassword, etPhone,
-                        etStreet, etCep,
-                        etNumber, etComplement,
-                        etProfilePicture
-                    )
-                }
+            if (etNumber.text.toString().isNotEmpty() && etStreet.text.toString()
+                    .isNotEmpty() && etCep.text.toString().isNotEmpty()
+            ) {
+                trySignUp(
+                    etName, etEmail,
+                    etPassword, etPhone,
+                    etStreet, etCep,
+                    etNumber, etComplement,
+                    etProfilePicture
+                )
+            }
 
         } else if (progressCont > 3) {
             return
