@@ -10,4 +10,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary_pink">#D38C88</color>
+    <color name="banner_profile">#698199</color>
+    <color name="text_banner">#2F2E41</color>
 </resources>
