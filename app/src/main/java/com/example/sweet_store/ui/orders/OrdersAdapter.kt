@@ -1,4 +1,4 @@
-package com.example.sweet_store.orders
+package com.example.sweet_store.ui.orders
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

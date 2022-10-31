@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.sweet_store.databinding.FragmentConfectioneryBinding
 import com.example.sweet_store.databinding.FragmentConfectioneryBtBinding
-import com.example.sweet_store.ui.dashboard.DashboardViewModel
 
 class ConfectioneryFragmentBt : Fragment() {
     private var _binding: FragmentConfectioneryBtBinding? = null

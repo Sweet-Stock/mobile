@@ -17,12 +17,11 @@
         android:label="Confeitarias"
         tools:layout="@layout/fragment_confectionery_bt" />
 
-
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.sweet_store.ui.dashboard.DashboardFragment"
+        android:name="com.example.sweet_store.ui.orders.OrderFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_order" />
 
     <fragment
         android:id="@+id/navigation_notifications"
