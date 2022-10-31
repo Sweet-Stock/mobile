@@ -1,11 +1,8 @@
 package com.example.sweet_store
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.sweet_store.confectionery_profile.ConfectioneryProfile
-import com.example.sweet_store.page_controll.rating.RatingPage
-import com.example.sweet_store.profile.Profile
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -32,7 +32,7 @@
              android:fontFamily="@font/rubik_bold"
              android:textSize="45dp"
              android:textColor="@color/text_banner"
-             tools:text="Le doce"/>
+             android:text="Le doce"/>
 
 
          <ImageView
