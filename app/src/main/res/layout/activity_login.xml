@@ -91,8 +91,8 @@
                 android:layout_width="240dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:onClick="goLogin"
                 android:background="@drawable/bt_style"
+                android:onClick="goLogin"
                 android:text="@string/entry"
                 android:textAlignment="center"
                 android:textColor="#FFFF" />
@@ -100,8 +100,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="goToPageSignUp"
-                android:gravity="center">
+                android:gravity="center"
+                android:onClick="goToPageSignUp">
 
                 <TextView
                     android:layout_width="208dp"
@@ -113,6 +113,11 @@
                     android:textAlignment="textEnd"
                     android:textColor="@color/primary"
                     android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  " />
 
                 <TextView
                     android:layout_width="110dp"
