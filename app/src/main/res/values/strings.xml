@@ -18,4 +18,8 @@
         <item key="COMPULSIVE">Compulsivo</item>
         <item key="DIABETIC">Diabético</item>
     </string-array>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Pedidos</string>
+    <string name="title_notifications">Perfil</string>
 </resources>

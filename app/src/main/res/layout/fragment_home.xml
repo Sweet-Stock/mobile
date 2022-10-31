@@ -1,17 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
-    tools:context=".HomeFragment">
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ui.home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:textSize="26dp"
-        android:layout_gravity="center"/>
+        android:scrollbars="none"
+        android:layout_marginTop="24dp">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_01"
+                    android:layout_width="130dp"
+                    android:layout_height="180dp"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/biscoitos" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_02"
+                    android:layout_width="130dp"
+                    android:layout_height="180dp"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/mousse" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_03"
+                    android:layout_width="130dp"
+                    android:layout_height="180dp"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/bolos" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_04"
+                    android:layout_width="130dp"
+                    android:layout_height="180dp"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/brigadeiro" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</LinearLayout>
