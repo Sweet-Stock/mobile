@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sweet_store.databinding.FragmentDashboardBinding
+import com.example.sweet_store.orders.OrdersAdapter
 
 class DashboardFragment : Fragment() {
 
@@ -17,11 +19,14 @@ class DashboardFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+
         val dashboardViewModel =
             ViewModelProvider(this).get(DashboardViewModel::class.java)
 
@@ -38,5 +43,11 @@ class DashboardFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun loadRecyclerView() {
+        val recyclerContainer = binding.orderRecyclerContainer
+        recyclerContainer.layoutManager = LinearLayoutManager(context)
+        recyclerContainer.adapter = OrdersAdapter()
     }
 }
