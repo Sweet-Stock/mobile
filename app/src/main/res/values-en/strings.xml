@@ -16,4 +16,5 @@
     <string name="ver_mais">View more</string>
     <string name="ver_detalhes">See details</string>
     <string name="forma_de_pagamento">Form of payment</string>
+    <string name="vencimento">Due date</string>
 </resources>
