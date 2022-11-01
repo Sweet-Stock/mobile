@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">Sweet Store</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="error_title">Houve um pequeno problema :(</string>
     <string name="tv_login">Login</string>
     <string name="tv_email">Email</string>
     <string name="hint_e_mail">E-mail</string>
     <string name="tv_password">Senha</string>
-    <string name="hint_password">*********</string>
+    <string name="hint_password" translatable="false">*********</string>
     <string name="forgot_password">Esqueceu a senha?</string>
     <string name="entry">Entrar</string>
     <string name="bt_create_account">Ainda não tem uma conta? </string>
@@ -18,8 +18,12 @@
         <item key="COMPULSIVE">Compulsivo</item>
         <item key="DIABETIC">Diabético</item>
     </string-array>
-    <string name="title_activity_home">HomeActivity</string>
-    <string name="title_home">Home</string>
+    <string name="title_activity_home" translatable="false">HomeActivity</string>
+    <string name="title_home" translatable="false">Home</string>
     <string name="title_dashboard">Pedidos</string>
     <string name="title_notifications">Perfil</string>
+    <string name="confeitarias">Confeitarias</string>
+    <string name="ver_mais">Ver mais</string>
+    <string name="ver_detalhes">Ver detalhes</string>
+    <string name="forma_de_pagamento">Forma de pagamento</string>
 </resources>

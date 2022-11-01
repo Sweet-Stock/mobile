@@ -3,18 +3,19 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/house_chimney_solid"
         android:title="@string/title_home" />
     <item
         android:id="@+id/navigation_confectionery"
-        android:icon="@drawable/ic_baseline_person_24"
-        android:title="Confeitarias" />
+        android:icon="@drawable/shop_solid"
+        android:title="@string/confeitarias" />
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_baseline_request_page_24"
+        android:icon="@drawable/receipt_solid"
         android:title="@string/title_dashboard" />
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_baseline_person_24"
+        android:iconTint="@color/secondary"
+        android:icon="@drawable/user_solid"
         android:title="@string/title_notifications" />
 </menu>

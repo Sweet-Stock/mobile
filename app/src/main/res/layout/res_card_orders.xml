@@ -23,7 +23,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
                 app:cardCornerRadius="5dp"
                 android:elevation="5dp">
 
@@ -35,9 +35,9 @@
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_weight="4"
                 android:orientation="vertical">
 
@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rubik_light"
-                android:text="Ver detalhes"
+                android:text="@string/ver_detalhes"
                 android:textColor="@color/primary_pink"
                 android:textSize="12sp" />
 
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rubik_medium"
-                android:text="Forma de pagamento"
+                android:text="@string/forma_de_pagamento"
                 android:textColor="@color/primary_pink"
                 android:textSize="10sp" />
 
@@ -118,7 +118,7 @@
                 android:fontFamily="@font/rubik_light"
                 android:text="****9889"
                 android:textColor="@color/light_grey"
-                android:textSize="10sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:gravity="center|end"
