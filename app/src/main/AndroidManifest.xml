@@ -19,6 +19,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".confectionery_rating.ConfectioneryRating"
+            android:exported="false" />
+        <activity
             android:name=".payments.AddCreditCard"
             android:exported="false">
             <meta-data
