@@ -27,4 +27,9 @@
     <string name="ver_detalhes">Ver detalhes</string>
     <string name="forma_de_pagamento">Forma de pagamento</string>
     <string name="vencimento">Vencimento</string>
+    <string name="save">Salvar</string>
+    <string-array name="PaymentMethod">
+        <item key="DEBIT">Débito</item>
+        <item key="CREDIT">Crédito</item>
+    </string-array>
 </resources>

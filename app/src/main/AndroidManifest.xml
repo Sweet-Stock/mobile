@@ -19,7 +19,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".profile.payments.PaymentMethod"
+            android:name=".payments.AddCreditCard"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".payments.PaymentMethod"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
