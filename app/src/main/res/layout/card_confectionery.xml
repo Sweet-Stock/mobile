@@ -15,6 +15,7 @@
         android:padding="8dp">
 
         <ImageView
+            android:id="@+id/img_confectionery"
             android:layout_width="72dp"
             android:layout_height="65dp"
             android:src="@drawable/brownie_cat" />
@@ -39,6 +40,13 @@
                     android:layout_marginBottom="8dp"
                     android:textSize="20sp" />
 
+                <Button
+                    android:id="@+id/btn_confectionery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="teste"
+                    android:background="@color/secondary"
+                    />
 
 
             </LinearLayout>

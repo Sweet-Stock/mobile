@@ -1,5 +1,6 @@
 package com.example.sweet_store.ui.notifications
 
+import android.app.ActionBar
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.sweet_store.databinding.FragmentNotificationsBinding
 class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
+    private var actionBar: ActionBar? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.

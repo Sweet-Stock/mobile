@@ -5,9 +5,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Rest {
     //url base do emulador
-    private val baseUrlSweetStore = "http://3.221.231.115/api/v1/sweet-store/"
+    private val baseUrlSweetStore = "https://3.221.231.115/api/v1/sweet-store/"
     private val baseUrlCep = "https://viacep.com.br/ws/"
-    private val baseUrlSweetStock = "http://54.225.132.238/v1/sweet-stock/"
+    private val baseUrlSweetStock = "https://sweetstock-backend.servehttp.com/v1/sweet-stock/"
     //url base para celular
     //private val baseUrl = "http://3.221.231.115/api/v1/sweet-store/"
 
