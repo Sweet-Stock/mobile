@@ -1,4 +1,4 @@
-package com.example.sweet_store.profile.payments
+package com.example.sweet_store.payments
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

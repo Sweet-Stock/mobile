@@ -38,25 +38,7 @@ class ConfectioneryProfile : AppCompatActivity() {
 
         val argumentsFooterBar = Bundle()
 
-        /*
 
-        val fragmentHeader = FragmentContainerView(applicationContext)
-        val fragmentConfectionery = FragmentContainerView(applicationContext)
-        val fragmentProductBox = FragmentContainerView(applicationContext)
-        val fragmentFooterBar = FragmentContainerView(applicationContext)
-
-        fragmentProductBox.id = View.generateViewId()
-        fragmentHeader.id = View.generateViewId()
-        fragmentConfectionery.id = View.generateViewId()
-        fragmentFooterBar.id = View.generateViewId()
-
-        binding.containerHeader.addView(fragmentHeader)
-        binding.containerCommentBox.addView(fragmentConfectionery)
-        binding.containerFooterBar.addView(fragmentFooterBar)
-        binding.containerProductBox.addView(fragmentProductBox)
-
-
-         */
 
         transition.add(binding.containerHeader.id, NavigationHeader::class.java, argumentsHeader)
         transition.add(binding.containerCommentBox.id, ConfectioneryProfileBox::class.java, argumentsCommentBox)

@@ -5,13 +5,24 @@
       <map>
         <entry key="../../Android/Sdk/platforms/android-32/data/res/layout/splash_screen_view.xml" value="0.1" />
         <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/activity_confectionery.xml" value="0.24818840579710144" />
+        <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/activity_confectionery_rating.xml" value="0.3625" />
+        <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/activity_home.xml" value="0.3625" />
+        <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/activity_login.xml" value="0.3625" />
+        <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/activity_orders.xml" value="0.3625" />
+        <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/activity_payment_method.xml" value="0.3625" />
         <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/activity_profile.xml" value="0.3572916666666667" />
         <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/activity_rating_page.xml" value="0.3572916666666667" />
         <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/activity_sing_up.xml" value="0.3572916666666667" />
         <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/fragment_comment_box.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/fragment_confectionery_box.xml" value="0.29891304347826086" />
+        <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/fragment_confectionery_profile_box.xml" value="0.3625" />
+        <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/fragment_confectionery_rating_box.xml" value="0.3484375" />
         <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/fragment_navigation_header.xml" value="0.24818840579710144" />
         <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/fragment_navigation_header_v2.xml" value="0.24818840579710144" />
+        <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/fragment_product_box.xml" value="0.3625" />
         <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/fragment_profile_box.xml" value="0.34322916666666664" />
+        <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/res_card_orders.xml" value="0.3625" />
+        <entry key="..\:/Users/Ricardo/OneDrive/Documents/GitHub/mobile/app/src/main/res/layout/res_card_payment_method.xml" value="0.3625" />
         <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1935" />
         <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/drawable/banner.xml" value="0.166" />
         <entry key="..\:/Users/fernando.m.santos/OneDrive - Accenture/Aulas/SweetStock/mobile/app/src/main/res/drawable/ic_splash_scream.xml" value="0.1935" />
@@ -40,7 +51,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
