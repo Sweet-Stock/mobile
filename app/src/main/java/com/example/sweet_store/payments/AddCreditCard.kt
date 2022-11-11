@@ -34,11 +34,48 @@ class AddCreditCard : AppCompatActivity() {
         val tvNameCreditCard = binding.tvNameCreditCard
         val etNumberCreditCard = binding.etNumberCreditCard
         val tvNumberCreditCard = binding.tvNumberCreditCard
+        val etExpirationDate = binding.etExpirationDate
+        val tvExpirationDate = binding.tvExpirationDate
 
         onChangeNameCreditCard(etNameCard, tvNameCreditCard)
         onChangeNumberCreditCard(etNumberCreditCard, tvNumberCreditCard)
+        onChangeDateExpirationCreditCard(etExpirationDate, tvExpirationDate)
         setupSpinnerMethod(spinnerMethod)
         setupSpinnerBrand(spinnerBrand)
+    }
+
+    private fun onChangeDateExpirationCreditCard(
+        etExpirationDate: EditText,
+        tvExpirationDate: TextView
+    ) {
+        etExpirationDate.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                var text: String = etExpirationDate.text.toString()
+//                etExpirationDate.setText(formatNumberExpirationDate(text))
+                tvExpirationDate.text = formatNumberExpirationDate(text)
+            }
+
+            private fun formatNumberExpirationDate(s: String): String {
+                var formattedString = ""
+                if (s.length < 2) {
+                    return s
+                }
+                if (s.length in 2..4) {
+                    s.forEachIndexed { i, char ->
+                        if (i == 2) formattedString += "/"
+                        formattedString += char
+                    }
+                }
+                return formattedString
+            }
+
+        })
     }
 
     private fun onChangeNumberCreditCard(

@@ -61,11 +61,12 @@
                         android:textSize="10sp" />
 
                     <TextView
+                        android:id="@+id/tvExpirationDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/rubik_medium"
-                        android:text="09/24"
+                        android:text=""
                         android:textColor="@color/white"
                         android:textSize="14sp" />
 
@@ -139,10 +140,12 @@
                 android:textSize="16dp" />
 
             <EditText
+                android:id="@+id/etExpirationDate"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/et_style"
                 android:hint="00/00"
+                android:maxLength="4"
                 android:inputType="date"
                 android:padding="20dp" />
 
