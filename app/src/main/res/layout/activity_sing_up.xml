@@ -30,9 +30,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/rubik_medium"
-                android:text="Cadastro"
+                android:text="@string/cadastro"
                 android:textColor="@color/primary"
-                android:textSize="36dp" />
+                android:textSize="36sp" />
 
             <ImageView
                 android:id="@+id/progressBar"
@@ -49,16 +49,16 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/rubik_light"
-                android:text="Nome"
+                android:text="@string/name"
                 android:textColor="@color/primary"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/et_style"
-                android:hint="Nome"
+                android:hint="@string/name"
 
                 android:padding="20dp" />
 
@@ -69,16 +69,16 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/rubik_light"
-                android:text="Email"
+                android:text="@string/tv_email"
                 android:textColor="@color/primary"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/et_style"
-                android:hint="E-mail"
+                android:hint="@string/tv_email"
                 android:inputType="textEmailAddress"
                 android:padding="20dp" />
 
@@ -89,9 +89,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/rubik_light"
-                android:text="Senha"
+                android:text="@string/tv_password"
                 android:textColor="@color/primary"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/etPassword"
@@ -103,36 +103,15 @@
                 android:padding="20dp" />
 
             <TextView
-                android:id="@+id/tvProfilePicture"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/rubik_light"
-                android:text="imagem"
-                android:textColor="@color/primary"
-                android:textSize="16dp"
-                android:visibility="gone" />
-
-            <EditText
-                android:id="@+id/etProfilePicture"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:background="@drawable/et_style"
-                android:hint="Escolha um arquivo"
-                android:padding="20dp"
-                android:visibility="gone" />
-
-            <TextView
                 android:id="@+id/tvProfileType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/rubik_light"
-                android:text="Tipo de Perfil"
+                android:text="@string/tipo_de_perfil"
                 android:textColor="@color/primary"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:visibility="gone" />
 
             <Spinner
@@ -152,9 +131,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/rubik_light"
-                android:text="Telefone"
+                android:text="@string/telefone"
                 android:textColor="@color/primary"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:visibility="gone" />
 
             <EditText
@@ -195,9 +174,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/rubik_light"
-                android:text="Rua"
+                android:text="@string/rua"
                 android:textColor="@color/primary"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:visibility="gone" />
 
             <EditText
@@ -205,7 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/et_style"
-                android:hint="Rua"
+                android:hint="@string/rua"
                 android:padding="20dp"
                 android:visibility="gone" />
 
@@ -217,7 +196,7 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -228,9 +207,9 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/rubik_light"
-                        android:text="Numero"
+                        android:text="@string/numero"
                         android:textColor="@color/primary"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:visibility="gone" />
 
                     <EditText
@@ -247,7 +226,7 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -258,9 +237,9 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/rubik_light"
-                        android:text="Complemento"
+                        android:text="@string/complemento"
                         android:textColor="@color/primary"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:visibility="gone" />
 
                     <EditText
@@ -268,7 +247,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:background="@drawable/et_style"
-                        android:hint="Complemento"
+                        android:hint="@string/complemento"
                         android:padding="20dp"
                         android:visibility="gone" />
                 </LinearLayout>
@@ -288,10 +267,10 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/rubik_medium"
-                    android:text="Ao continuar, você concorda com os"
+                    android:text="@string/terms_of_use"
                     android:textAlignment="textEnd"
                     android:textColor="@color/primary"
-                    android:textSize="14dp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="110dp"
@@ -299,9 +278,9 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginBottom="20dp"
                     android:fontFamily="@font/rubik_medium"
-                    android:text="  Termos de uso"
+                    android:text="@string/termos_de_uso"
                     android:textColor="@color/secondary"
-                    android:textSize="14dp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -318,7 +297,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/bt_style"
                     android:onClick="backStep"
-                    android:text="Voltar"
+                    android:text="@string/voltar"
                     android:textAlignment="center"
                     android:textColor="#FFFF"
                     android:visibility="gone" />
@@ -332,7 +311,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/bt_style"
                     android:onClick="nextStep"
-                    android:text="Próximo"
+                    android:text="@string/pr_ximo"
                     android:textAlignment="center"
                     android:textColor="#FFFF" />
             </LinearLayout>
@@ -357,10 +336,10 @@
                         android:layout_marginTop="32dp"
                         android:layout_marginBottom="20dp"
                         android:fontFamily="@font/rubik_medium"
-                        android:text="Já tem uma conta?"
+                        android:text="@string/j_tem_uma_conta"
                         android:textAlignment="textEnd"
                         android:textColor="@color/primary"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_width="110dp"
@@ -370,7 +349,7 @@
                         android:fontFamily="@font/rubik_medium"
                         android:text="  Login"
                         android:textColor="@color/secondary"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
             </LinearLayout>

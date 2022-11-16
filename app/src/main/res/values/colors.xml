@@ -13,4 +13,5 @@
     <color name="banner_profile">#698199</color>
     <color name="text_banner">#2F2E41</color>
     <color name="light_grey">#9796A1</color>
+    <color name="color_card">#99DBDBDD</color>
 </resources>

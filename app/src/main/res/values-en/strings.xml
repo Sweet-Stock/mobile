@@ -18,4 +18,21 @@
     <string name="ver_detalhes">See details</string>
     <string name="forma_de_pagamento">Payment Method</string>
     <string name="vencimento">Due date</string>
+    <string name="name">Name</string>
+    <string name="save">Save</string>
+    <string name="cadastro">Sign Up</string>
+    <string name="telefone">Phone</string>
+    <string name="tipo_de_perfil">Profile Type</string>
+    <string name="rua">Street</string>
+    <string name="numero">Number</string>
+    <string name="termos_de_uso">Terms of use</string>
+    <string name="voltar">Back</string>
+    <string name="pr_ximo">Next</string>
+    <string name="complemento">Complement</string>
+    <string name="terms_of_use">By continuing, you agree to the</string>
+    <string name="j_tem_uma_conta">Already have an account?</string>
+    <string name="Ajuda">Help</string>
+    <string name="logout">Logout</string>
+    <string name="sobre">About Us</string>
+    <string name="help">Doubts</string>
 </resources>

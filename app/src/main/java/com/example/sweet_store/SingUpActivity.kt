@@ -164,8 +164,6 @@ class SingUpActivity : AppCompatActivity() {
         val etEmail: EditText = binding.etEmail
         val tvPassword: TextView = binding.tvPassword
         val etPassword: EditText = binding.etPassword
-        val tvProfilePicture: TextView = binding.tvProfilePicture
-        val etProfilePicture: EditText = binding.etProfilePicture
         val tvProfileType: TextView = binding.tvProfileType
         val etProfileType: Spinner = binding.spProfileType
         val tvPhone: TextView = binding.tvPhoneNumber
@@ -222,8 +220,7 @@ class SingUpActivity : AppCompatActivity() {
                     etName, etEmail,
                     etPassword, etPhone,
                     etStreet, etCep,
-                    etNumber, etComplement,
-                    etProfilePicture
+                    etNumber, etComplement
                 )
             }
 
@@ -239,8 +236,6 @@ class SingUpActivity : AppCompatActivity() {
             etEmail,
             tvPassword,
             etPassword,
-            tvProfilePicture,
-            etProfilePicture,
             tvProfileType,
             etProfileType,
             tvPhone,
@@ -265,8 +260,6 @@ class SingUpActivity : AppCompatActivity() {
         val etEmail: EditText = binding.etEmail
         val tvPassword: TextView = binding.tvPassword
         val etPassword: EditText = binding.etPassword
-        val tvProfilePicture: TextView = binding.tvProfilePicture
-        val etProfilePicture: EditText = binding.etProfilePicture
         val tvProfileType: TextView = binding.tvProfileType
         val etProfileType: Spinner = binding.spProfileType
         val tvPhone: TextView = binding.tvPhoneNumber
@@ -292,8 +285,6 @@ class SingUpActivity : AppCompatActivity() {
             etEmail,
             tvPassword,
             etPassword,
-            tvProfilePicture,
-            etProfilePicture,
             tvProfileType,
             etProfileType,
             tvPhone,
@@ -316,12 +307,10 @@ class SingUpActivity : AppCompatActivity() {
         etPassword: EditText, etPhone: EditText,
         etStreet: EditText, etCep: EditText,
         etNumber: EditText, etComplement: EditText,
-        etProfilePicture: EditText,
     ) {
 
         var name: String = etName.text.toString()
         var email: String = etEmail.text.toString()
-        var image: String = etProfilePicture.text.toString()
         var phone: String = etPhone.text.toString()
         //    var profileType: String = etProfileType.text.toString()
         var password: String = etPassword.text.toString()
@@ -332,7 +321,7 @@ class SingUpActivity : AppCompatActivity() {
         address.number = number
         address.complement = complement
         address.street = street
-        val body = UserRequest(name, email, image, phone, this.profileType, password, address)
+        val body = UserRequest(name, email, "image", phone, this.profileType, password, address)
         val request = retrofit.create(User::class.java)
 
         request.register(body).enqueue(
@@ -366,7 +355,6 @@ class SingUpActivity : AppCompatActivity() {
         tvName: TextView, etName: EditText,
         tvEmail: TextView, etEmail: EditText,
         tvPassword: TextView, etPassword: EditText,
-        tvProfilePicture: TextView, etProfilePicture: EditText,
         tvProfileType: TextView, etProfileType: Spinner,
         tvPhone: TextView, etPhone: EditText,
         tvCep: TextView, etCep: EditText,
@@ -387,8 +375,6 @@ class SingUpActivity : AppCompatActivity() {
                 etPassword.visibility = View.VISIBLE
                 tvPassword.visibility = View.VISIBLE
 
-                tvProfilePicture.visibility = View.GONE
-                etProfilePicture.visibility = View.GONE
                 tvProfileType.visibility = View.GONE
                 etProfileType.visibility = View.GONE
                 tvPhone.visibility = View.GONE
@@ -415,8 +401,6 @@ class SingUpActivity : AppCompatActivity() {
                 etPassword.visibility = View.GONE
                 tvPassword.visibility = View.GONE
 
-                tvProfilePicture.visibility = View.VISIBLE
-                etProfilePicture.visibility = View.VISIBLE
                 tvProfileType.visibility = View.VISIBLE
                 etProfileType.visibility = View.VISIBLE
                 tvPhone.visibility = View.VISIBLE
@@ -443,8 +427,6 @@ class SingUpActivity : AppCompatActivity() {
                 etPassword.visibility = View.GONE
                 tvPassword.visibility = View.GONE
 
-                tvProfilePicture.visibility = View.GONE
-                etProfilePicture.visibility = View.GONE
                 tvProfileType.visibility = View.GONE
                 etProfileType.visibility = View.GONE
                 tvPhone.visibility = View.GONE
