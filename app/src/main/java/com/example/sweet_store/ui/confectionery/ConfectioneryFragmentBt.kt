@@ -1,5 +1,4 @@
 package com.example.sweet_store.ui.confectionery
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sweet_store.R
+import com.example.sweet_store.databinding.FragmentConfectioneryBtBinding
 import com.example.sweet_store.rest.Rest
 import com.example.sweet_store.service.Company
 import retrofit2.Call
@@ -18,46 +17,32 @@ import retrofit2.Response
 
 class ConfectioneryFragmentBt : Fragment() {
 
-     val retrofit = Rest.getInstance()
+    val retrofit = Rest.getInstanceSweetStock()
 
-     lateinit var recyclerView: RecyclerView
-     lateinit var newArrayList: ArrayList<ConfectioneryVO>
-
+    lateinit var newArrayList: ArrayList<ConfectioneryVO>
+    private lateinit var binding: FragmentConfectioneryBtBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val recyclerView = binding.confectioneryRecyclerContainer
 
-
-        recyclerView = view.findViewById(R.id.confectioneryRecyclerContainer)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.setHasFixedSize(true)
-        val llm = LinearLayoutManager(context)
-        llm.orientation = LinearLayoutManager.VERTICAL
-
-        recyclerView.setLayoutManager(llm)
-        newArrayList = arrayListOf<ConfectioneryVO>()
-        println("inicio   "+newArrayList)
-        onResume()
+        callService(recyclerView)
     }
 
-    override fun onResume() {
-        super.onResume()
-        callService()
-    }
-
-    public fun callService() {
+    public fun callService(recyclerView: RecyclerView) {
 
         val request = retrofit.create(Company::class.java).getConfectionery()
         request.enqueue(object : Callback<List<ConfectioneryVO>> {
-            override fun onResponse(call: Call<List<ConfectioneryVO>>, response: Response<List<ConfectioneryVO>>) {
+            override fun onResponse(
+                call: Call<List<ConfectioneryVO>>,
+                response: Response<List<ConfectioneryVO>>
+            ) {
 
                 if (response.code() == 200) {
-                    newArrayList.clear()
-                    response.body()!!.forEach { confectionery ->
-                        newArrayList.add(confectionery)
-                        println("Teste   "+newArrayList)
+                    response.body()!!.forEach {
+                        newArrayList.add(it)
+                        println("Teste   " + newArrayList)
                     }
                     recyclerView.adapter = ConfectioneryAdapter(newArrayList)
-                    getUserData()
                 }
             }
 
@@ -68,21 +53,17 @@ class ConfectioneryFragmentBt : Fragment() {
         })
     }
 
-    public fun getUserData() {
-        if(newArrayList.isEmpty()) {
-            recyclerView.visibility = View.GONE
-        } else {
-            println(newArrayList)
-            recyclerView.adapter = ConfectioneryAdapter(newArrayList)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_confectionery_bt, container, false)
+        binding = FragmentConfectioneryBtBinding.inflate(inflater, container, false)
+        val recyclerView = binding.confectioneryRecyclerContainer
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.setHasFixedSize(true)
+        newArrayList = arrayListOf<ConfectioneryVO>()
+        return binding.root
     }
 
 }
