@@ -35,4 +35,6 @@
     <string name="logout">Logout</string>
     <string name="sobre">About Us</string>
     <string name="help">Doubts</string>
+    <string name="next">Next</string>
+    <string name="cart">Cart</string>
 </resources>
