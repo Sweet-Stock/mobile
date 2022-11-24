@@ -7,7 +7,6 @@ import android.text.TextUtils
 import android.util.Patterns
 import android.view.View
 import android.widget.EditText
-import com.example.sweet_store.confectionery.Confectionery
 import com.example.sweet_store.databinding.ActivityErroPageBinding
 import com.example.sweet_store.databinding.ActivityLoginBinding
 import com.example.sweet_store.databinding.ActivitySingUpBinding

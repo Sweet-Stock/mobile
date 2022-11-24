@@ -17,6 +17,7 @@ import com.example.sweet_store.service.Company
 import com.example.sweet_store.ui.confectionery.ConfectioneryAdapter
 import com.example.sweet_store.ui.confectionery.ConfectioneryFragmentBt
 import com.example.sweet_store.ui.confectionery.ConfectioneryVO
+import com.example.sweet_store.ui.confectionery.HomeAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -65,7 +66,7 @@ class HomeFragment : Fragment() {
                         newArrayList.add(it)
                         println("Teste   " + newArrayList)
                     }
-                    recyclerView.adapter = ConfectioneryAdapter(newArrayList)
+                    recyclerView.adapter = HomeAdapter(newArrayList)
                 }
             }
 

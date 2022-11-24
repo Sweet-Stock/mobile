@@ -17,7 +17,7 @@
             android:id="@+id/img_confectionery"
             android:layout_width="72dp"
             android:layout_height="65dp"
-            android:src="@drawable/brownie_cat" />
+            android:src="@drawable/resource_default" />
 
         <LinearLayout
             android:layout_width="wrap_content"
