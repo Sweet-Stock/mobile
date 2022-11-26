@@ -44,6 +44,7 @@
     <string name="Ajuda">Ajuda</string>
     <string name="sobre">Sobre nós</string>
     <string name="logout">Sair</string>
+    <string name="product">Produtos</string>
     <string name="next">Próximo</string>
     <string name="cart">Carrinho</string>
     <string-array name="PaymentMethod">

@@ -1,8 +1,5 @@
 package com.example.sweet_store.ui.confectionery
 
-import android.graphics.BitmapFactory
-import android.net.Uri.decode
-import android.util.Base64.DEFAULT
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sweet_store.R
-import java.lang.Byte.decode
-import java.util.*
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.util.Base64
-import java.io.UnsupportedEncodingException
-import java.nio.charset.StandardCharsets
 import kotlin.collections.ArrayList
 
 class ConfectioneryAdapter(private val confectionery: ArrayList<ConfectioneryVO>) :
@@ -30,13 +24,21 @@ class ConfectioneryAdapter(private val confectionery: ArrayList<ConfectioneryVO>
             LayoutInflater.from(parent.context).inflate(R.layout.card_confectionery, parent, false)
         return ConfectioneryAdapter.ViewConfectioneryHolder(itemView)
     }
+    private fun formatBase64(code: String) : String {
+        var formattedString = code
+
+        formattedString = formattedString.replace("data:image/png;base64,", "")
+        formattedString = formattedString.replace("data:image/svg;base64,", "")
+        formattedString = formattedString.replace("data:image/svg+xml;base64,", "")
+        formattedString = formattedString.replace("data:image/jpeg;base64,", "")
+        formattedString = formattedString.replace("data:image/jpg;base64,", "")
+        return formattedString
+    }
 
     override fun onBindViewHolder(
         holder: ConfectioneryAdapter.ViewConfectioneryHolder,
         position: Int
     ) {
-
-
 
         var street: String
         val currentItem = confectionery[position]
@@ -44,6 +46,9 @@ class ConfectioneryAdapter(private val confectionery: ArrayList<ConfectioneryVO>
         holder.name.text = currentItem.fantasyName
         holder.address.text = street
 
+        val bruteBase64 = currentItem.picture
+        val base64 = formatBase64(bruteBase64)
+        holder.image.setImageBitmap(convertStringToBitmap(base64))
     }
 
     override fun getItemCount() = confectionery.size

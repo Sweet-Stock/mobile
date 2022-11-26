@@ -10,16 +10,15 @@ import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
 import android.widget.*
-import com.example.sweet_store.confectionery.Confectionery
 import com.example.sweet_store.databinding.ActivitySingUpBinding
 import com.example.sweet_store.enums.ProfileType
 import com.example.sweet_store.model.address.Address
 import com.example.sweet_store.model.response.UserResponse
 import com.example.sweet_store.model.response.ViaCepResponse
 import com.example.sweet_store.model.user.UserRequest
-import com.example.sweet_store.profile.Profile
 import com.example.sweet_store.rest.Rest
 import com.example.sweet_store.service.User
+import com.example.sweet_store.ui.home.HomeFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -333,7 +332,7 @@ class SingUpActivity : AppCompatActivity() {
                     if (response.code() == 400) {
                         binding.etEmail.error = "Email já cadastrado, realize seu login :) "
                     } else if (response.code() == 201) {
-                        val loginPage = Intent(this@SingUpActivity, Profile::class.java)
+                        val loginPage = Intent(this@SingUpActivity, HomeFragment::class.java)
                         startActivity(loginPage)
                         println(response)
                     }
