@@ -32,7 +32,7 @@ class PaymentMethod : AppCompatActivity() {
         val recyclerContainer = binding.paymentMethodRecyclerContainer
         recyclerContainer.layoutManager = LinearLayoutManager(baseContext)
 
-        val request = retrofit.create(PaymentService::class.java).getAllPaymentMethodsFromUser()
+        val request = retrofit.create(PaymentService::class.java).getAllPaymentMethodsFromUser("")
 
         request.enqueue(object : Callback<List<Payment>> {
             override fun onResponse(call: Call<List<Payment>>, response: Response<List<Payment>>) {
