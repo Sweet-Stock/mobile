@@ -21,6 +21,4 @@ interface User {
 
     @GET("{cep}/json/")
     fun getCep(@Path("cep") cep :String):Call<ViaCepResponse>
-
-
 }
