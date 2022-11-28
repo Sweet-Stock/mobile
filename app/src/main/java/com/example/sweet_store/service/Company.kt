@@ -12,4 +12,7 @@ interface Company {
     @GET("companies")
     fun getConfectionery() : Call<List<ConfectioneryVO>>
 
+    @GET("companies/{id}")
+    fun getConfectioneryById( @Path("id") id:String) : Call<ConfectioneryVO>
+
 }

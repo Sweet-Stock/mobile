@@ -6,9 +6,10 @@ import java.util.*
 data class ProductVO(
     val uuid: String,
     val name: String,
+    val picture: String,
     val saleValue: String,
-    val expirationDate: Date,
-    val dateInsert: LocalDate,
-    val dateUpdate: LocalDate,
-    val category: String,
+    val expirationDate: String,
+    val dateInsert: String,
+    val dateUpdate: String,
+ //   val category: String,
 )

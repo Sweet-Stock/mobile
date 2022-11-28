@@ -17,7 +17,7 @@ import retrofit2.Response
 
 class ConfectioneryFragmentBt : Fragment() {
 
-    val retrofit = Rest.getInstanceSweetStock()
+    private val retrofit = Rest.getInstanceSweetStock()
 
     lateinit var newArrayList: ArrayList<ConfectioneryVO>
     private lateinit var binding: FragmentConfectioneryBtBinding
@@ -28,7 +28,7 @@ class ConfectioneryFragmentBt : Fragment() {
         callService(recyclerView)
     }
 
-    public fun callService(recyclerView: RecyclerView) {
+    private fun callService(recyclerView: RecyclerView) {
 
         val request = retrofit.create(Company::class.java).getConfectionery()
         request.enqueue(object : Callback<List<ConfectioneryVO>> {

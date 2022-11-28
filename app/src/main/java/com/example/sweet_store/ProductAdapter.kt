@@ -1,4 +1,4 @@
-package com.example.sweet_store.ui.confectionery
+package com.example.sweet_store
 
 import android.content.Context
 import android.content.Intent
@@ -11,12 +11,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sweet_store.ConfectioneryActivity
-import com.example.sweet_store.R
+import com.example.sweet_store.model.response.ProductVO
+import com.example.sweet_store.ui.confectionery.ConfectioneryAdapter
+import com.example.sweet_store.ui.confectionery.ConfectioneryVO
 
-
-class ConfectioneryAdapter(private val confectionery: ArrayList<ConfectioneryVO>) :
-    RecyclerView.Adapter<ConfectioneryAdapter.ViewConfectioneryHolder>() {
+class ProductAdapter(private val product: ArrayList<ProductVO>) :
+    RecyclerView.Adapter<ProductAdapter.ViewProductHolder>() {
 
 
     var con: Context? = null
@@ -25,10 +25,10 @@ class ConfectioneryAdapter(private val confectionery: ArrayList<ConfectioneryVO>
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ConfectioneryAdapter.ViewConfectioneryHolder {
+    ): ProductAdapter.ViewProductHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.card_confectionery, parent, false)
-        return ConfectioneryAdapter.ViewConfectioneryHolder(itemView)
+            LayoutInflater.from(parent.context).inflate(R.layout.card_product, parent, false)
+        return ProductAdapter.ViewProductHolder(itemView)
     }
 
     private fun formatBase64(code: String): String {
@@ -43,15 +43,14 @@ class ConfectioneryAdapter(private val confectionery: ArrayList<ConfectioneryVO>
     }
 
     override fun onBindViewHolder(
-        holder: ConfectioneryAdapter.ViewConfectioneryHolder,
+        holder: ProductAdapter.ViewProductHolder,
         position: Int
     ) {
 
         var street: String
-        val currentItem = confectionery[position]
-        street = currentItem.address.street ?: ""
-        holder.name.text = currentItem.fantasyName
-        holder.address.text = street
+        val currentItem = product[position]
+        holder.name.text = currentItem.name
+       // holder.description.text = currentI
 
         val bruteBase64 = currentItem.picture
         val base64 = formatBase64(bruteBase64)
@@ -61,23 +60,23 @@ class ConfectioneryAdapter(private val confectionery: ArrayList<ConfectioneryVO>
         }
     }
 
-    override fun getItemCount() = confectionery.size
+    override fun getItemCount() = product.size
     fun convertStringToBitmap(base64Str: String?): Bitmap? {
         val decodedString = Base64.decode(base64Str, Base64.DEFAULT)
         return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
     }
 
-    class ViewConfectioneryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewProductHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var uuid: String = ""
-        val name: TextView = itemView.findViewById(R.id.name_confectionery)
-        val address: TextView = itemView.findViewById(R.id.adress_confectionery)
-        val image: ImageView = itemView.findViewById(R.id.img_confectionery)
+        val name: TextView = itemView.findViewById(R.id.name_product)
+        val description: TextView = itemView.findViewById(R.id.description_product)
+        val image: ImageView = itemView.findViewById(R.id.image_product)
 
         init {
             this.itemView.setOnClickListener {
-                val detalheCliente = Intent(it.context, ConfectioneryActivity::class.java)
-                detalheCliente.putExtra("idConfectionery", uuid)
-                it.context.startActivity(detalheCliente)
+                val detail = Intent(it.context, ConfectioneryActivity::class.java)
+                detail.putExtra("idConfectionery", uuid)
+                it.context.startActivity(detail)
             }
         }
     }

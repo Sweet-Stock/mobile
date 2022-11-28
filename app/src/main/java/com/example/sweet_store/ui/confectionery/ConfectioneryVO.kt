@@ -13,4 +13,5 @@ data class ConfectioneryVO(
     val email: String,
     val telephoneNumber: String,
     val address: Address,
+    val isOpen: Boolean,
 )
