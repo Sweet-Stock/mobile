@@ -26,6 +26,20 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".cart.CheckoutCart"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".cart.Cart"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".WebViewSiteActivity"
             android:exported="false">
             <meta-data
