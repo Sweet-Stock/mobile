@@ -11,5 +11,5 @@ data class ProductVO(
     val expirationDate: String,
     val dateInsert: String,
     val dateUpdate: String,
- //   val category: String,
+    val category: Category,
 )

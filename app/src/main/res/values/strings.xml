@@ -47,6 +47,7 @@
     <string name="product">Produtos</string>
     <string name="next">Próximo</string>
     <string name="cart">Carrinho</string>
+    <string name="image_confectionery">image_confectionery</string>
     <string-array name="PaymentMethod">
         <item key="DEBIT">Débito</item>
         <item key="CREDIT">Crédito</item>

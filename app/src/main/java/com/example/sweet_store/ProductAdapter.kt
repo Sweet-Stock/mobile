@@ -50,14 +50,14 @@ class ProductAdapter(private val product: ArrayList<ProductVO>) :
         var street: String
         val currentItem = product[position]
         holder.name.text = currentItem.name
-       // holder.description.text = currentI
+        // holder.description.text = currentI
 
         val bruteBase64 = currentItem.picture
         val base64 = formatBase64(bruteBase64)
         holder.image.setImageBitmap(convertStringToBitmap(base64))
         holder.uuid = currentItem.uuid
-        holder.image.setOnClickListener {
-        }
+        holder.value.text = currentItem.saleValue
+
     }
 
     override fun getItemCount() = product.size
@@ -71,6 +71,7 @@ class ProductAdapter(private val product: ArrayList<ProductVO>) :
         val name: TextView = itemView.findViewById(R.id.name_product)
         val description: TextView = itemView.findViewById(R.id.description_product)
         val image: ImageView = itemView.findViewById(R.id.image_product)
+        val value: TextView = itemView.findViewById(R.id.value_product)
 
         init {
             this.itemView.setOnClickListener {

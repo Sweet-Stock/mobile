@@ -15,17 +15,14 @@
         android:elevation="0dp"
         android:padding="8dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp">
+
 
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginEnd="70dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:src="@drawable/back_arrow" />
 
             <TextView
@@ -36,7 +33,6 @@
                 android:text="@string/confeitarias"
                 android:textColor="@color/primary"
                 android:textSize="20sp" />
-        </LinearLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
