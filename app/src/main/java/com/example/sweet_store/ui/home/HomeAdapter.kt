@@ -29,16 +29,32 @@ class HomeAdapter (private val confectionery: ArrayList<ConfectioneryVO>) :
             LayoutInflater.from(parent.context).inflate(R.layout.card_confectionery, parent, false)
         return HomeAdapter.ViewHomeHolder(itemView)
     }
+    private fun formatBase64(code: String): String {
+        var formattedString = code
+
+        formattedString = formattedString.replace("data:image/png;base64,", "")
+        formattedString = formattedString.replace("data:image/svg;base64,", "")
+        formattedString = formattedString.replace("data:image/svg+xml;base64,", "")
+        formattedString = formattedString.replace("data:image/jpeg;base64,", "")
+        formattedString = formattedString.replace("data:image/jpg;base64,", "")
+        return formattedString
+    }
 
     override fun onBindViewHolder(
         holder: HomeAdapter.ViewHomeHolder,
         position: Int
     ) {
 
-
-
         var street: String
         val currentItem = confectionery[position]
+
+        if  (!currentItem.picture.isNullOrEmpty()){
+            val bruteBase64 = currentItem.picture
+
+            val base64 = formatBase64(bruteBase64)
+            holder.image.setImageBitmap(convertStringToBitmap(base64))
+        }
+
         street = currentItem.address.street?: ""
         holder.name.text = currentItem.fantasyName
         holder.address.text = street
@@ -46,7 +62,7 @@ class HomeAdapter (private val confectionery: ArrayList<ConfectioneryVO>) :
     }
 
     override fun getItemCount() = confectionery.size
-    fun convertStringToBitmap(base64Str: String?): Bitmap? {
+    private fun convertStringToBitmap(base64Str: String?): Bitmap? {
         val decodedString = Base64.decode(base64Str, Base64.DEFAULT)
         return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
     }

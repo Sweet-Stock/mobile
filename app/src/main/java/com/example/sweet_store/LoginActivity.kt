@@ -18,6 +18,7 @@ import com.example.sweet_store.model.user.UserRequest
 import com.example.sweet_store.rest.Rest
 import com.example.sweet_store.service.Profile
 import com.example.sweet_store.service.User
+import com.example.sweet_store.ui.home.HomeFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -86,7 +87,7 @@ class LoginActivity : AppCompatActivity() {
                         } else if (response.code() == 400) {
                             binding.etPassword.error = "Senha incorreta, tente novamente :) "
                         } else if (response.code() == 200) {
-                            val loginPage = Intent(this@LoginActivity, Profile::class.java)
+                            val loginPage = Intent(this@LoginActivity, HomeFragment::class.java)
                             startActivity(loginPage)
                             println(response)
                         }

@@ -12,4 +12,5 @@ data class ProductVO(
     val dateInsert: String,
     val dateUpdate: String,
     val category: Category,
-)
+    val nutritionalFacts: NutritionalFacts,
+    )

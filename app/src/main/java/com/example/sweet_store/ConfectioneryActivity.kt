@@ -24,7 +24,6 @@ class ConfectioneryActivity : AppCompatActivity() {
 
     private val retrofit = Rest.getInstanceSweetStock()
     private lateinit var binding: ActivityConfectioneryBinding
-    private var mAdapter: ListAdapter?= null;
     lateinit var confectionery: ConfectioneryVO
      var newArrayList: ArrayList<ProductVO>  = ArrayList()
 
@@ -99,12 +98,17 @@ class ConfectioneryActivity : AppCompatActivity() {
                     print(confectionery)
                    val street = confectionery.address.street ?: ""
 
-                    val bruteBase64 = confectionery.picture
-                    val base64 = formatBase64(bruteBase64)
+
+                    if  (!confectionery.picture.isNullOrEmpty()){
+                        val bruteBase64 = confectionery.picture
+
+                        val base64 = formatBase64(bruteBase64)
+                        binding.imageConfectionery.setImageBitmap(convertStringToBitmap(base64))
+                    }
+
                     binding.nameConfectionery.text = confectionery.fantasyName;
                     binding.titlePage.text = confectionery.fantasyName;
                     binding.adressConfectionery.text = street
-                    binding.imageConfectionery.setImageBitmap(convertStringToBitmap(base64))
                 }
             }
             override fun onFailure(call: Call<ConfectioneryVO>, t: Throwable) {

@@ -41,8 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="48dp"
-        android:backgroundTint="@color/white"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/secondary"
         app:cardCornerRadius="8dp">
 
         <ImageView
@@ -56,30 +56,252 @@
 
     <TextView
         android:id="@+id/name_product"
-        android:layout_width="290dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/rubik_medium"
         android:textColor="@color/primary"
-        android:textSize="24sp" />
+        android:textSize="32sp" />
 
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal">
 
-
         <TextView
-            android:id="@+id/adress_confectionery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/rubik_regular"
-            android:textColor="@color/primary"
-            android:textSize="20sp" />
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/rubik_medium"
+            android:text="@string/real"
+            android:textColor="@color/secondary"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/value_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/rubik_medium"
+            android:textColor="@color/secondary"
+            android:textSize="32sp" />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        android:text="@string/informa_es_nutricionais"
+        android:fontFamily="@font/rubik_medium"
+        android:textColor="@color/primary"
+        android:layout_marginBottom="16dp"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Valor Energético"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:fontFamily="@font/rubik_medium"/>
+            <TextView
+                android:id="@+id/calories"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_marginStart="56dp"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:fontFamily="@font/rubik_medium"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kcal"
+                android:gravity="start"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:fontFamily="@font/rubik_medium"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="149dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium"
+                android:gravity="start"
+
+                android:text="Proteínas"
+                android:textColor="@color/primary"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/protein"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_marginStart="56dp"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:fontFamily="@font/rubik_medium"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@string/gramas'
+                android:gravity="start"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:fontFamily="@font/rubik_medium"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium"
+                android:gravity="start"
+                android:text="Açucares"
+                android:textColor="@color/primary"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/sugars"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_marginStart="56dp"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:fontFamily="@font/rubik_medium"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@string/gramas'
+                android:gravity="start"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:fontFamily="@font/rubik_medium"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium"
+                android:gravity="start"
+                android:text="Gorduras"
+                android:textColor="@color/primary"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/fat"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_marginStart="56dp"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:fontFamily="@font/rubik_medium"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@string/gramas'
+                android:gravity="start"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:fontFamily="@font/rubik_medium"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium"
+                android:gravity="start"
+                android:text="Sódio"
+                android:textColor="@color/primary"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/sodium"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:layout_marginStart="56dp"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:fontFamily="@font/rubik_medium"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@string/gramas'
+                android:gravity="start"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+                android:fontFamily="@font/rubik_medium"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    
+    <Button
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:fontFamily="@font/rubik_medium"
+        android:layout_width="248dp"
+        android:textSize="20sp"
+        android:text="Adicionar no Carrinho"
+        android:background="@color/primary"
+        android:layout_height="60dp"/>
 </LinearLayout>

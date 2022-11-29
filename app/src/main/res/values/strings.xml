@@ -48,6 +48,10 @@
     <string name="next">Próximo</string>
     <string name="cart">Carrinho</string>
     <string name="image_confectionery">image_confectionery</string>
+    <string name="real">R$</string>
+    <string name="informa_es_nutricionais">Informações Nutricionais</string>
+    <string name="kcal">kcal</string>
+    <string name="gramas">g</string>
     <string-array name="PaymentMethod">
         <item key="DEBIT">Débito</item>
         <item key="CREDIT">Crédito</item>

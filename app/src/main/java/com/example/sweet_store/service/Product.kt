@@ -10,6 +10,9 @@ interface Product {
     @GET("products")
     fun getProducts() : Call<List<ProductVO>>
 
+    @GET("products/{uuid}")
+    fun getProductById( @Path("uuid") id: String) : Call<ProductVO>
+
     @GET("products/all-products-no-sold-by-category/{id}")
     fun getCategoryProducts( @Path("id") id: String) : Call<List<ProductVO>>
 }

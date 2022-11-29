@@ -50,8 +50,6 @@ class ProductAdapter(private val product: ArrayList<ProductVO>) :
         var street: String
         val currentItem = product[position]
         holder.name.text = currentItem.name
-        // holder.description.text = currentI
-
         val bruteBase64 = currentItem.picture
         val base64 = formatBase64(bruteBase64)
         holder.image.setImageBitmap(convertStringToBitmap(base64))
@@ -75,8 +73,8 @@ class ProductAdapter(private val product: ArrayList<ProductVO>) :
 
         init {
             this.itemView.setOnClickListener {
-                val detail = Intent(it.context, ConfectioneryActivity::class.java)
-                detail.putExtra("idConfectionery", uuid)
+                val detail = Intent(it.context, ProductActivity::class.java)
+                detail.putExtra("idProduct", uuid)
                 it.context.startActivity(detail)
             }
         }

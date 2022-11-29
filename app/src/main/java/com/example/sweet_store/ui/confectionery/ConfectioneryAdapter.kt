@@ -49,13 +49,17 @@ class ConfectioneryAdapter(private val confectionery: ArrayList<ConfectioneryVO>
 
         var street: String
         val currentItem = confectionery[position]
+        if  (!currentItem.picture.isNullOrEmpty()){
+            val bruteBase64 = currentItem.picture
+
+            val base64 = formatBase64(bruteBase64)
+            holder.image.setImageBitmap(convertStringToBitmap(base64))
+        }
+
         street = currentItem.address.street ?: ""
         holder.name.text = currentItem.fantasyName
         holder.address.text = street
 
-        val bruteBase64 = currentItem.picture
-        val base64 = formatBase64(bruteBase64)
-        holder.image.setImageBitmap(convertStringToBitmap(base64))
         holder.uuid = currentItem.uuid
         holder.image.setOnClickListener {
         }

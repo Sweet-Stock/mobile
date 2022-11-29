@@ -29,7 +29,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rubik_medium"
-                android:text="Brownie"
                 android:textColor="@color/primary"
                 android:textSize="20sp" />
 
@@ -38,7 +37,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rubik_regular"
-                android:text="Brownie"
                 android:textColor="@color/light_grey"
                 android:textSize="16sp" />
 
@@ -52,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/rubik_medium"
-                    android:text="R$"
+                    android:text="@string/real"
                     android:textColor="@color/secondary"
                     android:textSize="20sp" />
 
@@ -62,7 +60,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/rubik_medium"
-                    android:text="10,00"
                     android:textColor="@color/secondary"
                     android:textSize="20sp" />
             </LinearLayout>
