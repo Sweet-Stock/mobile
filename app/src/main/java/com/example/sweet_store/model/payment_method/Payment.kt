@@ -6,7 +6,7 @@ data class Payment(
     var idPayment: Long? = null,
     var uuidUser: String? = "",
     var cardNumber: String? = "",
-    var expirationDate: LocalDate? = null,
+    var expirationDate: String? = null,
     var cardHolderName: String? = "",
     var cvcCode: String? = "",
     var type: String = "",
