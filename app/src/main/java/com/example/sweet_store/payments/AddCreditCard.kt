@@ -20,7 +20,6 @@ class AddCreditCard : AppCompatActivity() {
             R.drawable.flag_mastercard
         )
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_credit_card)
@@ -107,7 +106,6 @@ class AddCreditCard : AppCompatActivity() {
                 }
                 return formattedString
             }
-
         })
     }
 
@@ -135,7 +133,6 @@ class AddCreditCard : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinnerMethod.adapter = adapter
         }
-
     }
 
     private fun setupSpinnerBrand(spinnerBrand: Spinner) {

@@ -1,20 +1,18 @@
 package com.example.sweet_store
 
+import android.R
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.view.View
 import android.widget.EditText
-import com.example.sweet_store.databinding.ActivityErroPageBinding
+import androidx.appcompat.app.AppCompatActivity
 import com.example.sweet_store.databinding.ActivityLoginBinding
-import com.example.sweet_store.databinding.ActivitySingUpBinding
-import com.example.sweet_store.model.address.Address
 import com.example.sweet_store.model.request.LoginRequest
 import com.example.sweet_store.model.response.LoginResponse
-import com.example.sweet_store.model.response.UserResponse
-import com.example.sweet_store.model.user.UserRequest
 import com.example.sweet_store.rest.Rest
 import com.example.sweet_store.service.Profile
 import com.example.sweet_store.service.User
@@ -87,7 +85,12 @@ class LoginActivity : AppCompatActivity() {
                         } else if (response.code() == 400) {
                             binding.etPassword.error = "Senha incorreta, tente novamente :) "
                         } else if (response.code() == 200) {
-                            val loginPage = Intent(this@LoginActivity, HomeFragment::class.java)
+                            val loginPage = Intent(this@LoginActivity, Profile::class.java)
+                            val sharedPref = this@LoginActivity.getPreferences(Context.MODE_PRIVATE) ?: return
+                            with(sharedPref.edit()) {
+                                putString("userId", response.body()?.uuid ?: "")
+                                apply()
+                            }
                             startActivity(loginPage)
                             println(response)
                         }
@@ -100,10 +103,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                 })
         }
-
-
     }
-
 
     fun goToPageSignUp(view: View) {
         val signUpPage = Intent(this@LoginActivity, SingUpActivity::class.java)
