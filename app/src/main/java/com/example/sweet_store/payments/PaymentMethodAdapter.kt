@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sweet_store.R
-import com.example.sweet_store.model.payment_method.Payment
+import com.example.sweet_store.model.payment_method.PaymentResponse
 
 class PaymentMethodAdapter(
-    private var paymentMethodList: MutableList<Payment>
+    private var paymentResponseMethodList: MutableList<PaymentResponse>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
@@ -18,9 +18,9 @@ class PaymentMethodAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val currentItem = paymentMethodList[position]
+        val currentItem = paymentResponseMethodList[position]
         (holder as PaymentMethodHolder).linkLayoutItems(currentItem)
     }
 
-    override fun getItemCount() = paymentMethodList.size
+    override fun getItemCount() = paymentResponseMethodList.size
 }

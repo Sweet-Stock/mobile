@@ -5,10 +5,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sweet_store.R
-import com.example.sweet_store.model.payment_method.Payment
+import com.example.sweet_store.model.payment_method.PaymentResponse
 
 class PaymentMethodHolder(cardLayout: View) : RecyclerView.ViewHolder(cardLayout) {
-    fun linkLayoutItems(currentItem: Payment) {
+    fun linkLayoutItems(currentItem: PaymentResponse) {
         val paymentName: TextView = itemView.findViewById(R.id.payment_name)
         val cardNumber: TextView = itemView.findViewById(R.id.card_number)
         val brandPayment: ImageView = itemView.findViewById(R.id.brand_payment)
