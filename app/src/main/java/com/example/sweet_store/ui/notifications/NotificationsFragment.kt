@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.sweet_store.AboutUsActivity
@@ -35,6 +36,7 @@ class NotificationsFragment : Fragment() {
 
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
         _binding!!.btPayment.setOnClickListener{
             val btPayment = _binding!!.btPayment
             btPayment.setOnClickListener {
@@ -65,6 +67,11 @@ class NotificationsFragment : Fragment() {
         }
         return root
     }
+//    private fun getUserIdFromSharedPrefs(): String? {
+//        val sharedPref = (AppCompatActivity.MODE_PRIVATE)
+//        val defaultValue = ""
+//        return sharedPref.getString("userId", defaultValue)
+//    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
