@@ -1,5 +1,6 @@
 package com.example.sweet_store.ui.confectionery
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri.decode
 import android.util.Base64.DEFAULT
@@ -14,6 +15,7 @@ import java.lang.Byte.decode
 import java.util.*
 import android.graphics.Bitmap
 import android.util.Base64
+import com.example.sweet_store.ConfectioneryActivity
 import java.nio.charset.StandardCharsets
 import kotlin.collections.ArrayList
 
@@ -58,6 +60,7 @@ class HomeAdapter (private val confectionery: ArrayList<ConfectioneryVO>) :
         street = currentItem.address.street?: ""
         holder.name.text = currentItem.fantasyName
         holder.address.text = street
+        holder.uuid = currentItem.uuid
 
     }
 
@@ -67,11 +70,17 @@ class HomeAdapter (private val confectionery: ArrayList<ConfectioneryVO>) :
         return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
     }
     class ViewHomeHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var idConfectionery: Int = 0
+        var uuid: String = ""
         val name: TextView = itemView.findViewById(R.id.name_confectionery)
         val address: TextView = itemView.findViewById(R.id.adress_confectionery)
         val image: ImageView = itemView.findViewById(R.id.img_confectionery)
-
+        init {
+            this.itemView.setOnClickListener {
+                val detalheCliente = Intent(it.context, ConfectioneryActivity::class.java)
+                detalheCliente.putExtra("idConfectionery", uuid)
+                it.context.startActivity(detalheCliente)
+            }
+        }
     }
 
 }

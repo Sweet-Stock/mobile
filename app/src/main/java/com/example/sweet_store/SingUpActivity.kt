@@ -1,5 +1,6 @@
 package com.example.sweet_store
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -330,10 +331,15 @@ class SingUpActivity : AppCompatActivity() {
                     response: Response<UserResponse>
                 ) {
                     if (response.code() == 400) {
-                        binding.etEmail.error = "Email já cadastrado, realize seu login :) "
+              //          binding.etEmail.error = "Email já cadastrado, realize seu login :) "
                     } else if (response.code() == 201) {
-                        val loginPage = Intent(this@SingUpActivity, HomeFragment::class.java)
-                        startActivity(loginPage)
+                        val home = Intent(this@SingUpActivity, HomeActivity::class.java)
+                        val sharedPref = this@SingUpActivity.getPreferences(Context.MODE_PRIVATE) ?: return
+                        with(sharedPref.edit()) {
+                            putString("userId", response.body()?.uuid ?: "")
+                            apply()
+                        }
+                        startActivity(home)
                         println(response)
                     }
 

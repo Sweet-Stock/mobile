@@ -40,7 +40,7 @@ class ConfectioneryActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = ProductAdapter(ArrayList())
-        callService(recyclerView)
+        callService(recyclerView, uuid)
 
     }
     private fun formatBase64(code: String): String {
@@ -59,9 +59,9 @@ class ConfectioneryActivity : AppCompatActivity() {
         return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
     }
 
-    private fun callService(recyclerView: RecyclerView) {
+    private fun callService(recyclerView: RecyclerView, uuid: String) {
 
-        val request = retrofit.create(Product::class.java).getProducts()
+        val request = retrofit.create(Product::class.java).getProducts(uuid)
         request.enqueue(object : Callback<List<ProductVO>> {
             override fun onResponse(
                 call: Call<List<ProductVO>>,

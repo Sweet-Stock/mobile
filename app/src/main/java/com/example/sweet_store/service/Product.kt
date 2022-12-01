@@ -7,8 +7,8 @@ import retrofit2.http.Path
 
 interface Product {
 
-    @GET("products")
-    fun getProducts() : Call<List<ProductVO>>
+    @GET("products/products-no-sold-by-uuid-company/{uuid}")
+    fun getProducts(@Path("uuid") id: String) : Call<List<ProductVO>>
 
     @GET("products/{uuid}")
     fun getProductById( @Path("uuid") id: String) : Call<ProductVO>

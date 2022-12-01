@@ -57,28 +57,22 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/nameUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/rubik_medium"
-                    android:text="Fernando Marques"
                     android:textColor="@color/primary"
                     android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/emailUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/rubik_light"
-                    android:text="fer.marques@gmail.com"
                     android:textColor="@color/primary"
                     android:textSize="20sp" />
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_margin="24dp"
-                android:src="@drawable/edit" />
 
         </LinearLayout>
 

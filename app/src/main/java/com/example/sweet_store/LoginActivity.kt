@@ -85,12 +85,15 @@ class LoginActivity : AppCompatActivity() {
                         } else if (response.code() == 400) {
                             binding.etPassword.error = "Senha incorreta, tente novamente :) "
                         } else if (response.code() == 200) {
-                            val loginPage = Intent(this@LoginActivity, Profile::class.java)
+                            val loginPage = Intent(this@LoginActivity, HomeActivity::class.java)
                             val sharedPref = this@LoginActivity.getPreferences(Context.MODE_PRIVATE) ?: return
                             with(sharedPref.edit()) {
                                 putString("userId", response.body()?.uuid ?: "")
+                                putString("name", response.body()?.name ?: "")
+                                putString("email", response.body()?.email ?: "")
                                 apply()
                             }
+
                             startActivity(loginPage)
                             println(response)
                         }
