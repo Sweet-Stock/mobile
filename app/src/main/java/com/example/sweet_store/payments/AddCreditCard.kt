@@ -8,9 +8,29 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sweet_store.R
 import com.example.sweet_store.databinding.ActivityAddCreditCardBinding
+import com.example.sweet_store.model.payment_method.PaymentRequest
+import com.example.sweet_store.model.payment_method.PaymentResponse
+import com.example.sweet_store.rest.Rest
+import com.example.sweet_store.service.PaymentService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AddCreditCard : AppCompatActivity() {
+    private val retrofit = Rest.getInstance()
     private lateinit var binding: ActivityAddCreditCardBinding
+    var userId = "568571f3-e07f-48e8-b891-c35510de98fe"
+
+    private lateinit var spinnerBrand: Spinner
+    private lateinit var spinnerMethod: Spinner
+    private lateinit var etNameCard: EditText
+    private lateinit var tvNameCreditCard: TextView
+    private lateinit var etNumberCreditCard: EditText
+    private lateinit var tvNumberCreditCard: TextView
+    private lateinit var etExpirationDate: EditText
+    private lateinit var tvExpirationDate: TextView
+    private lateinit var etCvcCode: EditText
+
 
     private var images =
         intArrayOf(
@@ -27,14 +47,15 @@ class AddCreditCard : AppCompatActivity() {
         binding = ActivityAddCreditCardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val spinnerBrand = binding.addCreditCardSpinnerBrand
-        val spinnerMethod = binding.addCreditCardSpinnerMethodPayment
-        val etNameCard = binding.etNameCreditCard
-        val tvNameCreditCard = binding.tvNameCreditCard
-        val etNumberCreditCard = binding.etNumberCreditCard
-        val tvNumberCreditCard = binding.tvNumberCreditCard
-        val etExpirationDate = binding.etExpirationDate
-        val tvExpirationDate = binding.tvExpirationDate
+        spinnerBrand = binding.addCreditCardSpinnerBrand
+        spinnerMethod = binding.addCreditCardSpinnerMethodPayment
+        etNameCard = binding.etNameCreditCard
+        tvNameCreditCard = binding.tvNameCreditCard
+        etNumberCreditCard = binding.etNumberCreditCard
+        tvNumberCreditCard = binding.tvNumberCreditCard
+        etExpirationDate = binding.etExpirationDate
+        tvExpirationDate = binding.tvExpirationDate
+        etCvcCode = binding.etCvcCode
 
         onChangeNameCreditCard(etNameCard, tvNameCreditCard)
         onChangeNumberCreditCard(etNumberCreditCard, tvNumberCreditCard)
@@ -47,7 +68,7 @@ class AddCreditCard : AppCompatActivity() {
         etExpirationDate: EditText,
         tvExpirationDate: TextView
     ) {
-        etExpirationDate.addTextChangedListener(object : TextWatcher{
+        etExpirationDate.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
@@ -152,5 +173,39 @@ class AddCreditCard : AppCompatActivity() {
 
         val customAdapter = SpinnerBrandAdapter(applicationContext, images)
         spinnerBrand.adapter = customAdapter
+    }
+
+    fun savePaymentMethod(view: View) {
+        val request = retrofit.create(PaymentService::class.java)
+
+        request.addPayment(generatePayment()).enqueue(object : Callback<PaymentResponse> {
+            override fun onResponse(
+                call: Call<PaymentResponse>,
+                response: Response<PaymentResponse>
+            ) {
+                if (response.code() == 200) {
+                    Toast.makeText(this@AddCreditCard, "Adicionado com sucesso", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<PaymentResponse>, t: Throwable) {
+                Toast.makeText(this@AddCreditCard, "Deu ruim", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+    }
+
+    private fun generatePayment(): PaymentRequest {
+
+        return PaymentRequest(
+            uuidUser = userId,
+            cardNumber = etNumberCreditCard.text.toString(),
+            expirationDate = etExpirationDate.text.toString(),
+            cardHolderName = etNameCard.text.toString(),
+            cvcCode = etCvcCode.text.toString(),
+            type = "Débito",
+            brand = "MaterCard",
+            paymentName = "Cartão",
+        )
     }
 }

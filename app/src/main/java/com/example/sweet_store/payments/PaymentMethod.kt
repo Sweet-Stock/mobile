@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sweet_store.R
 import com.example.sweet_store.databinding.ActivityPaymentMethodBinding
-import com.example.sweet_store.model.payment_method.Payment
+import com.example.sweet_store.model.payment_method.PaymentResponse
 import com.example.sweet_store.rest.Rest
 import com.example.sweet_store.service.PaymentService
 import retrofit2.Call
@@ -16,7 +16,7 @@ import retrofit2.Response
 class PaymentMethod : AppCompatActivity() {
     private lateinit var binding: ActivityPaymentMethodBinding
     val retrofit = Rest.getInstance()
-    var paymentMethodList: MutableList<Payment> = mutableListOf()
+    var paymentResponseMethodList: MutableList<PaymentResponse> = mutableListOf()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,16 +38,16 @@ class PaymentMethod : AppCompatActivity() {
             retrofit.create(PaymentService::class.java)
                 .getAllPaymentMethodsFromUser( "568571f3-e07f-48e8-b891-c35510de98fe")
 
-        request.enqueue(object : Callback<List<Payment>> {
-            override fun onResponse(call: Call<List<Payment>>, response: Response<List<Payment>>) {
+        request.enqueue(object : Callback<List<PaymentResponse>> {
+            override fun onResponse(call: Call<List<PaymentResponse>>, response: Response<List<PaymentResponse>>) {
                 if (response.code() == 200) {
-                    response.body()!!.forEach(paymentMethodList::add)
+                    response.body()!!.forEach(paymentResponseMethodList::add)
                     Toast.makeText(baseContext, "Ce é brabo", Toast.LENGTH_SHORT).show()
-                    recyclerContainer.adapter = PaymentMethodAdapter(paymentMethodList)
+                    recyclerContainer.adapter = PaymentMethodAdapter(paymentResponseMethodList)
                 }
             }
 
-            override fun onFailure(call: Call<List<Payment>>, t: Throwable) {
+            override fun onFailure(call: Call<List<PaymentResponse>>, t: Throwable) {
                 Toast.makeText(
                     baseContext,
                     "Falha ao buscar formas de pagamento",

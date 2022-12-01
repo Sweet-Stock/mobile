@@ -169,6 +169,8 @@
                 android:textSize="16dp" />
 
             <EditText
+                android:id="@+id/etCvcCode"
+                android:maxLength="3"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/et_style"
@@ -249,6 +251,7 @@
         android:background="@drawable/bt_style"
         android:backgroundTint="@color/text_banner"
         android:text="@string/save"
+        android:onClick="savePaymentMethod"
         android:textAlignment="center"
         android:textColor="#FFFF" />
 

@@ -1,8 +1,6 @@
 package com.example.sweet_store.model.payment_method
 
-import java.time.LocalDate
-
-data class Payment(
+data class PaymentResponse(
     var idPayment: Long? = null,
     var uuidUser: String? = "",
     var cardNumber: String? = "",
