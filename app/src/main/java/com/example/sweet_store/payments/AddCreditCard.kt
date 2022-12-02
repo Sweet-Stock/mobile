@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sweet_store.ActivityErrorPage
 import com.example.sweet_store.R
 import com.example.sweet_store.databinding.ActivityAddCreditCardBinding
 import com.example.sweet_store.model.payment_method.PaymentRequest
@@ -246,7 +247,9 @@ class AddCreditCard : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<PaymentResponse>, t: Throwable) {
-                Toast.makeText(this@AddCreditCard, "Deu ruim", Toast.LENGTH_SHORT).show()
+                val errorPage = Intent(this@AddCreditCard, ActivityErrorPage::class.java)
+                errorPage.putExtra("error", "Falha ao cadastrar forma de pagamento. Motivo: ${t.message}")
+                startActivity(errorPage)
             }
         })
 

@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.example.sweet_store.databinding.ActivityErroPageBinding
-import com.example.sweet_store.databinding.ActivityLoginBinding
 
-class activityErroPage : AppCompatActivity() {
+class ActivityErrorPage : AppCompatActivity() {
     private lateinit var binding: ActivityErroPageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

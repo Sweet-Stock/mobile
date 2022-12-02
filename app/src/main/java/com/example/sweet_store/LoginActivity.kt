@@ -1,9 +1,7 @@
 package com.example.sweet_store
 
-import android.R
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
@@ -14,9 +12,7 @@ import com.example.sweet_store.databinding.ActivityLoginBinding
 import com.example.sweet_store.model.request.LoginRequest
 import com.example.sweet_store.model.response.LoginResponse
 import com.example.sweet_store.rest.Rest
-import com.example.sweet_store.service.Profile
 import com.example.sweet_store.service.User
-import com.example.sweet_store.ui.home.HomeFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -100,7 +96,7 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                        val errorPage = Intent(this@LoginActivity, activityErroPage::class.java)
+                        val errorPage = Intent(this@LoginActivity, ActivityErrorPage::class.java)
                         errorPage.putExtra("error", t.toString())
                         startActivity(errorPage)
                     }

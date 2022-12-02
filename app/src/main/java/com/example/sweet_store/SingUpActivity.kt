@@ -8,7 +8,6 @@ import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Patterns
-import android.view.KeyEvent
 import android.view.View
 import android.widget.*
 import com.example.sweet_store.databinding.ActivitySingUpBinding
@@ -19,11 +18,9 @@ import com.example.sweet_store.model.response.ViaCepResponse
 import com.example.sweet_store.model.user.UserRequest
 import com.example.sweet_store.rest.Rest
 import com.example.sweet_store.service.User
-import com.example.sweet_store.ui.home.HomeFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.regex.Pattern
 
 class SingUpActivity : AppCompatActivity() {
     private val retrofit = Rest.getInstance()
@@ -346,7 +343,7 @@ class SingUpActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                    val errorPage = Intent(this@SingUpActivity, activityErroPage::class.java)
+                    val errorPage = Intent(this@SingUpActivity, ActivityErrorPage::class.java)
                     errorPage.putExtra("error", t.toString())
                     startActivity(errorPage)
                 }
