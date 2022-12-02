@@ -1,6 +1,8 @@
 package com.example.sweet_store.payments
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,7 +44,6 @@ class PaymentMethod : AppCompatActivity() {
             override fun onResponse(call: Call<List<PaymentResponse>>, response: Response<List<PaymentResponse>>) {
                 if (response.code() == 200) {
                     response.body()!!.forEach(paymentResponseMethodList::add)
-                    Toast.makeText(baseContext, "Ce é brabo", Toast.LENGTH_SHORT).show()
                     recyclerContainer.adapter = PaymentMethodAdapter(paymentResponseMethodList)
                 }
             }
@@ -61,5 +62,10 @@ class PaymentMethod : AppCompatActivity() {
         val sharedPref = this@PaymentMethod.getPreferences(MODE_PRIVATE)
         val defaultValue = ""
         return sharedPref.getString("userId", defaultValue)
+    }
+
+    fun goToAddCreditCardPage(view: View) {
+        val addPaymentPage = Intent(this@PaymentMethod, AddCreditCard::class.java)
+        startActivity(addPaymentPage)
     }
 }
