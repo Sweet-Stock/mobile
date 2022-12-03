@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sweet_store.R
-import sweet.apisweetstore.integration.ProductResponseAPI
+import com.example.sweet_store.model.cart.ProductResponseAPI
 
 class CartAdapter(private var productResponse: List<ProductResponseAPI>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

@@ -1,4 +1,4 @@
-package sweet.apisweetstore.integration
+package com.example.sweet_store.model.cart
 
 data class Category(
     val id: String? = "",

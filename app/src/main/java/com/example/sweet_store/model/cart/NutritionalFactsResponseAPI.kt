@@ -1,4 +1,4 @@
-package sweet.apisweetstore.integration
+package com.example.sweet_store.model.cart
 
 data class NutritionalFactsResponseAPI(
     val id: Int? = 0,
