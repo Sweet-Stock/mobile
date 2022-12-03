@@ -280,14 +280,16 @@
     android:layout_height="wrap_content">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/btn_go_to_cart_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:backgroundTint="@color/secondary"
         android:layout_gravity="end|bottom"
+        android:onClick="goToCartPage"
         android:src="@drawable/buy"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="100dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/confectioneryRecyclerContainer"
         tools:itemCount="3"

@@ -9,12 +9,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sweet_store.AboutUsActivity
-import com.example.sweet_store.R
+import com.example.sweet_store.cart.Cart
 import com.example.sweet_store.databinding.FragmentHomeBinding
 import com.example.sweet_store.rest.Rest
 import com.example.sweet_store.service.Company
-import com.example.sweet_store.ui.confectionery.ConfectioneryAdapter
 import com.example.sweet_store.ui.confectionery.ConfectioneryFragmentBt
 import com.example.sweet_store.ui.confectionery.ConfectioneryVO
 import com.example.sweet_store.ui.confectionery.HomeAdapter
@@ -35,14 +33,20 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val fragmentB = ConfectioneryFragmentBt()
-
-
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        setGoToCartPage()
         val recyclerView = binding.confectioneryRecyclerContainer
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
         newArrayList = arrayListOf<ConfectioneryVO>()
         return binding.root
+    }
+
+    private fun setGoToCartPage() {
+        binding.btnGoToCartPage.setOnClickListener {
+            val intent = Intent(activity, Cart::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,7 +56,7 @@ class HomeFragment : Fragment() {
         callService(recyclerView)
     }
 
-     private fun callService(recyclerView: RecyclerView) {
+    private fun callService(recyclerView: RecyclerView) {
 
         val request = retrofit.create(Company::class.java).getConfectionery()
         request.enqueue(object : Callback<List<ConfectioneryVO>> {
