@@ -331,12 +331,23 @@ class SingUpActivity : AppCompatActivity() {
               //          binding.etEmail.error = "Email já cadastrado, realize seu login :) "
                     } else if (response.code() == 201) {
                         val home = Intent(this@SingUpActivity, HomeActivity::class.java)
-                        val sharedPref = this@SingUpActivity.getPreferences(Context.MODE_PRIVATE) ?: return
-                        with(sharedPref.edit()) {
-                            putString("userId", response.body()?.uuid ?: "")
-                            apply()
-                        }
+                        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+                        val editor = sharedPreference.edit()
+                        editor.putString("userName", response.body()?.name)
+                        editor.putString("userEmail", response.body()?.email)
+                        editor.putString("userId",response.body()?.uuid)
+                        editor.apply()
+
+//                        val sharedPref = this@SingUpActivity.getSharedPreferences("USER_DATA",Context.MODE_PRIVATE) ?: return
+//                        with(sharedPref.edit()) {
+//                            putString("userId", response.body()?.uuid ?: "")
+//                            putString("name", response.body()?.name ?: "")
+//                            putString("email", response.body()?.email ?: "")
+//
+//                            apply()
+//                        }
                         startActivity(home)
+
                         println(response)
                     }
 

@@ -34,14 +34,20 @@ class PaymentMethod : AppCompatActivity() {
         val recyclerContainer = binding.paymentMethodRecyclerContainer
         recyclerContainer.layoutManager = LinearLayoutManager(baseContext)
 
+        val prefs = baseContext?.getSharedPreferences("PREFERENCE_NAME", MODE_PRIVATE)
+
+        val uuid: String = prefs?.getString("userId", "") ?: ""
 //        var userId: String? = getUserIdFromSharedPrefs()
 
         val request =
             retrofit.create(PaymentService::class.java)
-                .getAllPaymentMethodsFromUser( "568571f3-e07f-48e8-b891-c35510de98fe")
+                .getAllPaymentMethodsFromUser(uuid)
 
         request.enqueue(object : Callback<List<PaymentResponse>> {
-            override fun onResponse(call: Call<List<PaymentResponse>>, response: Response<List<PaymentResponse>>) {
+            override fun onResponse(
+                call: Call<List<PaymentResponse>>,
+                response: Response<List<PaymentResponse>>
+            ) {
                 if (response.code() == 200) {
                     response.body()!!.forEach(paymentResponseMethodList::add)
                     recyclerContainer.adapter = PaymentMethodAdapter(paymentResponseMethodList)

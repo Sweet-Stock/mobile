@@ -82,13 +82,12 @@ class LoginActivity : AppCompatActivity() {
                             binding.etPassword.error = "Senha incorreta, tente novamente :) "
                         } else if (response.code() == 200) {
                             val loginPage = Intent(this@LoginActivity, HomeActivity::class.java)
-                            val sharedPref = this@LoginActivity.getPreferences(Context.MODE_PRIVATE) ?: return
-                            with(sharedPref.edit()) {
-                                putString("userId", response.body()?.uuid ?: "")
-                                putString("name", response.body()?.name ?: "")
-                                putString("email", response.body()?.email ?: "")
-                                apply()
-                            }
+                            val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+                            val editor = sharedPreference.edit()
+                            editor.putString("userName", response.body()?.name)
+                            editor.putString("userEmail", response.body()?.email)
+                            editor.putString("userId",response.body()?.uuid)
+                            editor.apply()
 
                             startActivity(loginPage)
                             println(response)
