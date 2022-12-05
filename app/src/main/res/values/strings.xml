@@ -52,6 +52,8 @@
     <string name="informa_es_nutricionais">Informações Nutricionais</string>
     <string name="kcal">kcal</string>
     <string name="gramas">g</string>
+    <string name="frete">Frete</string>
+    <string name="subtotal">Subtotal</string>
     <string-array name="PaymentMethod">
         <item key="DEBIT">Débito</item>
         <item key="CREDIT">Crédito</item>

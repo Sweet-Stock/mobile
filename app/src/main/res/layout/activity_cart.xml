@@ -59,19 +59,45 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/rubik_light"
-                android:text="Subtotal"
+                android:text="@string/subtotal"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
 
             <TextView
+                android:id="@+id/subtotal_item_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rubik_bold"
-                android:text="R$27,30"
+                android:text="R$ 0,00"
                 android:textColor="@color/black" />
 
         </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:fontFamily="@font/rubik_light"-->
+<!--                android:text="Desconto"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="16sp" />-->
+
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/rubik_bold"-->
+<!--                android:text="R$27,30"-->
+<!--                android:textColor="@color/black" />-->
+
+<!--        </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,41 +110,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/rubik_light"
-                android:text="Desconto"
+                android:text="@string/frete"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
 
             <TextView
+                android:id="@+id/frete_item_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rubik_bold"
-                android:text="R$27,30"
-                android:textColor="@color/black" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/rubik_light"
-                android:text="Desconto"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/rubik_bold"
-                android:text="R$27,30"
+                android:text="R$ 0,00"
                 android:textColor="@color/black" />
 
         </LinearLayout>
@@ -140,10 +142,11 @@
 
 
             <TextView
+                android:id="@+id/total_item_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rubik_bold"
-                android:text="R$27,30"
+                android:text="R$ 0,00"
                 android:textColor="@color/black" />
 
         </LinearLayout>
