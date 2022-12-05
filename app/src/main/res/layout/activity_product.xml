@@ -292,6 +292,7 @@
     </LinearLayout>
     
     <Button
+        android:id="@+id/bt_add"
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_marginHorizontal="24dp"

@@ -11,13 +11,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sweet_store.model.response.ProductVO
 import com.example.sweet_store.ui.confectionery.ConfectioneryAdapter
 import com.example.sweet_store.ui.confectionery.ConfectioneryVO
 
-class ProductAdapter(private val product: ArrayList<ProductVO>,   private  val uuidConfectionery: String
-) :
-    RecyclerView.Adapter<ProductAdapter.ViewProductHolder>() {
+class CategoryAdapter (private val confectionery: ArrayList<ConfectioneryVO>) :
+    RecyclerView.Adapter<CategoryAdapter.ViewCategoryHolder>() {
 
 
     var con: Context? = null
@@ -26,10 +24,10 @@ class ProductAdapter(private val product: ArrayList<ProductVO>,   private  val u
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ProductAdapter.ViewProductHolder {
+    ): CategoryAdapter.ViewCategoryHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.card_product, parent, false)
-        return ProductAdapter.ViewProductHolder(itemView, uuidConfectionery)
+            LayoutInflater.from(parent.context).inflate(R.layout.card_confectionery, parent, false)
+        return CategoryAdapter.ViewCategoryHolder(itemView)
     }
 
     private fun formatBase64(code: String): String {
@@ -44,40 +42,45 @@ class ProductAdapter(private val product: ArrayList<ProductVO>,   private  val u
     }
 
     override fun onBindViewHolder(
-        holder: ProductAdapter.ViewProductHolder,
+        holder: CategoryAdapter.ViewCategoryHolder,
         position: Int
     ) {
 
         var street: String
-        val currentItem = product[position]
-        holder.name.text = currentItem.name
-        val bruteBase64 = currentItem.picture
-        val base64 = formatBase64(bruteBase64)
-        holder.image.setImageBitmap(convertStringToBitmap(base64))
-        holder.uuid = currentItem.uuid
-        holder.value.text = currentItem.saleValue
+        val currentItem = confectionery[position]
+        if  (!currentItem.picture.isNullOrEmpty()){
+            val bruteBase64 = currentItem.picture
 
+            val base64 = formatBase64(bruteBase64)
+            holder.image.setImageBitmap(convertStringToBitmap(base64))
+        }
+
+        street = currentItem.address.street ?: ""
+        holder.name.text = currentItem.fantasyName
+        holder.address.text = street
+
+        holder.uuid = currentItem.uuid
+        holder.image.setOnClickListener {
+        }
     }
 
-    override fun getItemCount() = product.size
+    override fun getItemCount() = confectionery.size
     fun convertStringToBitmap(base64Str: String?): Bitmap? {
         val decodedString = Base64.decode(base64Str, Base64.DEFAULT)
         return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
     }
 
-    class ViewProductHolder(itemView: View, private  val uuidConfectionery: String) : RecyclerView.ViewHolder(itemView) {
+    class ViewCategoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var uuid: String = ""
-        val name: TextView = itemView.findViewById(R.id.name_product)
-        val description: TextView = itemView.findViewById(R.id.description_product)
-        val image: ImageView = itemView.findViewById(R.id.image_product)
-        val value: TextView = itemView.findViewById(R.id.value_product)
+        val name: TextView = itemView.findViewById(R.id.name_confectionery)
+        val address: TextView = itemView.findViewById(R.id.adress_confectionery)
+        val image: ImageView = itemView.findViewById(R.id.img_confectionery)
 
         init {
             this.itemView.setOnClickListener {
-                val detail = Intent(it.context, ProductActivity::class.java)
-                detail.putExtra("idProduct", uuid)
-                detail.putExtra("idConfectionery", uuidConfectionery)
-                it.context.startActivity(detail)
+                val detalheCliente = Intent(it.context, ConfectioneryActivity::class.java)
+                detalheCliente.putExtra("idConfectionery", uuid)
+                it.context.startActivity(detalheCliente)
             }
         }
     }

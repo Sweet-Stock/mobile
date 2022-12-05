@@ -31,7 +31,6 @@ class ConfectioneryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         newArrayList = arrayListOf<ProductVO>()
-
         this.binding = ActivityConfectioneryBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val uuid: String? = intent.getStringExtra("idConfectionery")
@@ -39,7 +38,7 @@ class ConfectioneryActivity : AppCompatActivity() {
         val recyclerView = binding.productRecyclerContainer
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
         recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = ProductAdapter(ArrayList())
+        recyclerView.adapter = ProductAdapter(ArrayList(), uuid)
         callService(recyclerView, uuid)
 
     }
@@ -73,7 +72,7 @@ class ConfectioneryActivity : AppCompatActivity() {
                         newArrayList.add(it)
                         println("aaaaaaaaaaa   " + newArrayList)
                     }
-                    recyclerView.adapter = ProductAdapter(newArrayList)
+                    recyclerView.adapter = ProductAdapter(newArrayList,uuid)
                 }
             }
 
