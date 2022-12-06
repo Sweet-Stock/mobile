@@ -58,13 +58,15 @@
 
 
             <TextView
+                android:id="@+id/subtotal_checkout_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rubik_bold"
-                android:text="R$27,30"
+                android:text="R$ 0,00"
                 android:textColor="@color/black" />
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,41 +79,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/rubik_light"
-                android:text="Desconto"
+                android:text="Frete"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
 
             <TextView
+                android:id="@+id/frete_checkout_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rubik_bold"
-                android:text="R$27,30"
-                android:textColor="@color/black" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/rubik_light"
-                android:text="Desconto"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/rubik_bold"
-                android:text="R$27,30"
+                android:text="R$ 0,00"
                 android:textColor="@color/black" />
 
         </LinearLayout>
@@ -133,10 +111,11 @@
 
 
             <TextView
+                android:id="@+id/total_checkout_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rubik_bold"
-                android:text="R$27,30"
+                android:text="R$ 0,00"
                 android:textColor="@color/black" />
 
         </LinearLayout>
@@ -173,23 +152,23 @@
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="40dp"
-                android:layout_weight="0.4"
-                android:src="@drawable/location"
-                />
+<!--            <ImageView-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_weight="0.4"-->
+<!--                android:src="@drawable/location"-->
+<!--                />-->
 
-            <TextView
-                android:layout_weight="0.7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/rubik_semi_bold"
-                android:textSize="16sp"
-                android:textColor="@color/text_banner"
-                android:layout_gravity="center"
-                android:text="Rua da Ponte,217 - Guaianases"
-                />
+<!--            <TextView-->
+<!--                android:layout_weight="0.7"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/rubik_semi_bold"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textColor="@color/text_banner"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:text="Rua da Ponte,217 - Guaianases"-->
+<!--                />-->
 
         </LinearLayout>
 
@@ -203,12 +182,13 @@
             />
 
         <Spinner
-            android:id="@+id/cartPaymentMethod"
+            android:id="@+id/cart_checkout_payment_method"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/et_style"
             android:spinnerMode="dropdown"
             android:textAlignment="center" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="60sp"

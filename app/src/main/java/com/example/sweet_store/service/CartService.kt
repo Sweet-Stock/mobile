@@ -2,6 +2,7 @@ package com.example.sweet_store.service
 
 import com.example.sweet_store.model.cart.CartResponse
 import retrofit2.Call
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.Path
@@ -15,4 +16,9 @@ interface CartService {
         @Path("uuidUser") uuidUser: String,
         @Path("uuidProduct") uuidProduct: String,
         @Path("newQuantity") newQuantity: Int,): Call<Void>
+
+    @DELETE("cart/delete-item-from-cart-user/{uuidUser}/{uuidProduct}")
+    fun removeItemFromCart(
+        @Path("uuidUser") uuidUser: String,
+        @Path("uuidProduct") uuidProduct: String): Call<Void>
 }

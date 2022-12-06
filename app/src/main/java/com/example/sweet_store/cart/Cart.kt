@@ -77,7 +77,7 @@ class Cart : AppCompatActivity() {
         }
     }
 
-    private fun loadTotal(products: MutableList<ProductResponseAPI>) {
+    fun loadTotal(products: MutableList<ProductResponseAPI>) {
         val tvSubtotal = binding.subtotalItemCart
         val tvFrete = binding.freteItemCart
         val tvTotal = binding.totalItemCart

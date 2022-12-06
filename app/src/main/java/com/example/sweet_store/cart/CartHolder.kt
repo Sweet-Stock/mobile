@@ -14,7 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sweet_store.R
-import com.example.sweet_store.WebViewHelpActivity
+import com.example.sweet_store.model.cart.CartResponse
 import com.example.sweet_store.model.cart.ProductResponseAPI
 import com.example.sweet_store.rest.Rest
 import com.example.sweet_store.service.CartService
@@ -41,6 +41,7 @@ class CartHolder(cardLayout: View) : RecyclerView.ViewHolder(cardLayout) {
         val amountItemCart = itemView.findViewById<TextView>(R.id.amount_item_cart)
         val sumAmountCartItem = itemView.findViewById<ImageView>(R.id.sum_amount_cart_item)
         val subtractAmountCartItem = itemView.findViewById<ImageView>(R.id.sub_amount_cart_item)
+        val removeItemCart = itemView.findViewById<ImageView>(R.id.remove_item_cart)
 
         uuidProduct = currentItem.uuid
         nameItemCart.text = currentItem.name
@@ -50,8 +51,12 @@ class CartHolder(cardLayout: View) : RecyclerView.ViewHolder(cardLayout) {
         loadSharedPreferencesData()
         loadCartItemImage(currentItem, imageItemCart)
 
-        setupSumAndSubtractItemCart(sumAmountCartItem, subtractAmountCartItem, amountItemCart)
-
+        setupSumAndSubtractItemCart(
+            sumAmountCartItem,
+            subtractAmountCartItem,
+            removeItemCart,
+            amountItemCart
+        )
     }
 
     private fun loadSharedPreferencesData() {
@@ -62,49 +67,97 @@ class CartHolder(cardLayout: View) : RecyclerView.ViewHolder(cardLayout) {
         uuidUser = prefs?.getString("userId", "") ?: ""
     }
 
-    private fun setupRemoveItemFromCart(newQuantity: Int) {
-        val request =
-            retrofit.create(CartService::class.java)
-                .updateAmountCartAmountItem(
-                    uuidUser = uuidUser!!,
-                    uuidProduct = uuidProduct!!,
-                    newQuantity = newQuantity
-                )
-                .enqueue(object : Callback<Void> {
-                    override fun onResponse(
-                        call: Call<Void>,
-                        response: Response<Void>
-                    ) {
-                        val cartIntent = Intent(itemView.context, Cart::class.java)
-                        (itemView.context as Activity).finish()
-                        itemView.context.startActivity(cartIntent)
-                    }
-                    override fun onFailure(call: Call<Void>, t: Throwable) {
-                        println("Motivo do erro: " + t.message)
-                        Toast.makeText(
-                            itemView.context,
-                            "Erro ao atualizar item do carrinho",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                })
+    private fun setUpdateAmountItemFromCart(newQuantity: Int) {
+        retrofit.create(CartService::class.java)
+            .updateAmountCartAmountItem(
+                uuidUser = uuidUser!!,
+                uuidProduct = uuidProduct!!,
+                newQuantity = newQuantity
+            )
+            .enqueue(object : Callback<Void> {
+                override fun onResponse(
+                    call: Call<Void>,
+                    response: Response<Void>
+                ) {
+                    retrofit.create(CartService::class.java).getAllCartItems(uuidUser = uuidUser?: "")
+                        .enqueue(object : Callback<CartResponse> {
+                            override fun onResponse(
+                                call: Call<CartResponse>,
+                                response: Response<CartResponse>
+                            ) {
+                                if (response.isSuccessful) {
+                                    (itemView.context as Cart).loadTotal(response.body()!!.itens!!.toMutableList())
+                                }
+                            }
+                            override fun onFailure(call: Call<CartResponse>, t: Throwable) {
+                                println("Motivo do erro: " + t.message)
+                                Toast.makeText(
+                                    itemView.context,
+                                    "Erro ao atualizar itens do carrinho",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        })
+                }
 
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    println("Motivo do erro: " + t.message)
+                    Toast.makeText(
+                        itemView.context,
+                        "Erro ao atualizar item do carrinho",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
+    }
+
+    private fun removeItemFromCart() {
+        retrofit.create(CartService::class.java)
+            .removeItemFromCart(
+                uuidUser = uuidUser!!,
+                uuidProduct = uuidProduct!!,
+            )
+            .enqueue(object : Callback<Void> {
+                override fun onResponse(
+                    call: Call<Void>,
+                    response: Response<Void>
+                ) {
+                    val cartIntent = Intent(itemView.context, Cart::class.java)
+                    (itemView.context as Activity).finish()
+                    itemView.context.startActivity(cartIntent)
+                }
+
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    println("Motivo do erro: " + t.message)
+                    Toast.makeText(
+                        itemView.context,
+                        "Erro ao atualizar item do carrinho",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
     }
 
     private fun setupSumAndSubtractItemCart(
         sumAmountCartItem: ImageView,
         subtractAmountCartItem: ImageView,
-        amountItemCart: TextView
+        removeItemCart: ImageView,
+        amountItemCart: TextView,
     ) {
         sumAmountCartItem.setOnClickListener(OnClickListener {
             var amount = amountItemCart.text.toString().toInt() + 1
-            setupRemoveItemFromCart(amount)
+            setUpdateAmountItemFromCart(amount)
             amountItemCart.text = amount.toString()
         })
+
         subtractAmountCartItem.setOnClickListener(OnClickListener {
             var amount = amountItemCart.text.toString().toInt() - 1
-            setupRemoveItemFromCart(amount)
+            setUpdateAmountItemFromCart(amount)
             amountItemCart.text = amount.toString()
+        })
+
+        removeItemCart.setOnClickListener(OnClickListener {
+            removeItemFromCart()
         })
     }
 

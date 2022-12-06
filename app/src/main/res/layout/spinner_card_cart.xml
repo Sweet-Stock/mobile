@@ -7,19 +7,20 @@
     android:orientation="horizontal">
 
     <ImageView
+        android:id="@+id/spinner_brand_image_checkout"
         android:layout_weight="0.2"
-        android:id="@+id/spinner_brand_image"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:padding="5dp"
         android:src="@drawable/flag_mastercard" />
 
     <TextView
+        android:id="@+id/spinner_number_payment_checkout"
         android:layout_weight="0.8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="24dp"
+        android:textSize="16dp"
         android:text="**** **** **** 9889" />
 
 </LinearLayout>

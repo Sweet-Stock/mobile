@@ -44,8 +44,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cartRecyclerContainer"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
-            tools:itemCount="3"
+            android:layout_height="380dp"
+            tools:itemCount="5"
             tools:listitem="@layout/res_card_cart"/>
 
         <LinearLayout
