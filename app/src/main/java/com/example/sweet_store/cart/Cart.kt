@@ -1,7 +1,7 @@
 package com.example.sweet_store.cart
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,10 +14,15 @@ import com.example.sweet_store.service.CartService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.content.SharedPreferences
 import java.lang.String.format
 
 class Cart : AppCompatActivity() {
     private lateinit var binding: ActivityCartBinding
+    private lateinit var prefs: SharedPreferences
+    private var name: String? = ""
+    private var email: String? = ""
+    private var uuid: String? = ""
     val retrofit = Rest.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +34,9 @@ class Cart : AppCompatActivity() {
         val request =
             retrofit.create(CartService::class.java)
 
-        request.getAllCartItems()
+        loadSharedPreferencesData()
+
+        request.getAllCartItems(uuidUser = uuid?: "")
             .enqueue(object : Callback<CartResponse> {
                 override fun onResponse(
                     call: Call<CartResponse>,
@@ -52,17 +59,38 @@ class Cart : AppCompatActivity() {
             })
     }
 
+    private fun loadSharedPreferencesData() {
+        prefs = this@Cart.getSharedPreferences("PREFERENCE_NAME", MODE_PRIVATE)
+        name = prefs?.getString("userName", null) ?: ""
+        email = prefs?.getString("userEmail", null) ?: ""
+        uuid = prefs?.getString("userId", "") ?: ""
+    }
+
+    private fun setupNextStep(subtotal: Double, frete: Double, total: Double) {
+        val nextButton = binding.cartNextButton
+        nextButton.setOnClickListener {
+            val intent = Intent(baseContext, CheckoutCart::class.java)
+            intent.putExtra("subtotal", subtotal)
+            intent.putExtra("frete", frete)
+            intent.putExtra("total", total)
+            startActivity(intent)
+        }
+    }
+
     private fun loadTotal(products: MutableList<ProductResponseAPI>) {
-        val tvSubtotal = findViewById<TextView>(R.id.subtotal_item_cart)
-        val tvFrete = findViewById<TextView>(R.id.frete_item_cart)
-        val tvTotal = findViewById<TextView>(R.id.total_item_cart)
+        val tvSubtotal = binding.subtotalItemCart
+        val tvFrete = binding.freteItemCart
+        val tvTotal = binding.totalItemCart
 
-        val subtotal = products.sumOf { it.saleValue!!.toDouble() * it.total!! }
+        val subtotal = products.sumOf { it.saleValue!!.toDouble() * it.quantityInCart!! }
+        var frete = (subtotal * 0.08)
+        if(frete <= 9.99) frete = 9.99
+        val total = subtotal + frete
         tvSubtotal.text = format("R$ %.2f", subtotal)
-        val frete = (subtotal * 0.08)
         tvFrete.text = format("R$ %.2f", frete)
-        tvTotal.text = format("R$ %.2f", subtotal + frete)
+        tvTotal.text = format("R$ %.2f", total)
 
+        setupNextStep(subtotal, frete, total)
     }
 
     private fun loadCart(productResponseAPIS: MutableList<ProductResponseAPI>) {

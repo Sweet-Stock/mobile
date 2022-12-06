@@ -37,10 +37,10 @@ class NotificationsFragment : Fragment() {
 
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
 
-        val prefs = context?.getSharedPreferences("PREFERENCE_NAME", MODE_PRIVATE)
+        val prefs: SharedPreferences? = context?.getSharedPreferences("PREFERENCE_NAME", MODE_PRIVATE)
         val name: String = prefs?.getString("userName", null) ?: ""
         val email: String = prefs?.getString("userEmail", null) ?: ""
-        var uuid = prefs?.getString("userId", "") ?: ""
+        val uuid = prefs?.getString("userId", "") ?: ""
 
         print(name)
         _binding!!.nameUser.text = name

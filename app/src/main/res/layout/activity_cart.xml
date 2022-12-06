@@ -152,6 +152,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/cart_next_button"
             android:layout_width="match_parent"
             android:layout_height="60sp"
             android:layout_marginHorizontal="60dp"
