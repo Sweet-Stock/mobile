@@ -1,7 +1,9 @@
 package com.example.sweet_store.ui.orders
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sweet_store.R
 import com.example.sweet_store.model.orders.OrderResponse
@@ -15,6 +17,7 @@ class OrdersAdapter(
         return OrderHolder(cardLayout)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val currentItem = ordersResponseList[position]
         (holder as OrderHolder).linkLayoutItems(currentItem)

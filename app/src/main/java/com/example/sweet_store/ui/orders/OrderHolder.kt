@@ -1,14 +1,17 @@
 package com.example.sweet_store.ui.orders
 
+import android.content.SharedPreferences
 import android.os.Build
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sweet_store.R
 import com.example.sweet_store.model.orders.OrderResponse
-import java.time.LocalDateTime
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class OrderHolder(cardLayout: View) : RecyclerView.ViewHolder(cardLayout) {
     @RequiresApi(Build.VERSION_CODES.O)
@@ -21,7 +24,6 @@ class OrderHolder(cardLayout: View) : RecyclerView.ViewHolder(cardLayout) {
             itemView.findViewById(R.id.tv_order_name_confectionery)
         val brandOrder = itemView.findViewById<ImageView>(R.id.brand_credit_card_order)
         val finalCreditCard: TextView = itemView.findViewById(R.id.tv_credit_card_number_order)
-
         var brands = mapOf(
             "Elo" to R.drawable.flag_elo,
             "American Express" to R.drawable.flag_american_express,
@@ -30,7 +32,7 @@ class OrderHolder(cardLayout: View) : RecyclerView.ViewHolder(cardLayout) {
         )
 
 
-        dateDescriptionOrder.text = formatDescriptionDate(currentItem.dateOrder)
+        dateDescriptionOrder.text = formatDescriptionDate(currentItem.dateOrder ?: "")
         nameConfectioneryOrder.text = currentItem.nameConfectionery
         orderValue.text = String.format("R$ %.2f", currentItem.valueOrder)
         finalCreditCard.text = currentItem.card
@@ -40,11 +42,12 @@ class OrderHolder(cardLayout: View) : RecyclerView.ViewHolder(cardLayout) {
                 R.drawable.flag_mastercard
             )
         )
-        amountOrder.setText(currentItem.quantityItems ?: 0)
+        amountOrder.text = currentItem.quantityItems.toString() + " itens"
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun formatDescriptionDate(dateOrder: LocalDateTime?): String {
+    private fun formatDescriptionDate(dateOrder: String): String {
+        val date = LocalDate.parse(dateOrder.take(10), DateTimeFormatter.ISO_DATE)
         val months = mapOf(
             1 to "Janeiro",
             2 to "Fevereiro",
@@ -59,6 +62,6 @@ class OrderHolder(cardLayout: View) : RecyclerView.ViewHolder(cardLayout) {
             11 to "Novembro",
             12 to "Dezembro"
         )
-        return "${dateOrder?.dayOfMonth} de ${months.get(dateOrder?.monthValue)}"
+        return "${date?.dayOfMonth} de ${months.get(date?.monthValue)}"
     }
 }

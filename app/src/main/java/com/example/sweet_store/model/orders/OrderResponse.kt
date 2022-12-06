@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 data class OrderResponse(
     val idOrder: Int? = 0,
     val statusOrder: String? = "",
-    val dateOrder: LocalDateTime? = null,
+    val dateOrder: String? = null,
     val nameConfectionery: String? = "",
     val valueOrder: BigDecimal? = BigDecimal.ZERO,
     val card: String? = "",

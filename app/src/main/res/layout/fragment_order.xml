@@ -40,7 +40,8 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="30dp"
+        android:paddingVertical="10dp"
+        android:layout_marginVertical="10dp"
         android:id="@+id/orderRecyclerContainer"
         tools:itemCount="3"
         android:layout_width="match_parent"

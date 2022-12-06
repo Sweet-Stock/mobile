@@ -1,11 +1,13 @@
 package com.example.sweet_store.ui.orders
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +25,8 @@ class OrderFragment : Fragment() {
     val retrofit = Rest.getInstance()
     private var _binding: FragmentOrderBinding? = null
     private val binding get() = _binding!!
+    private lateinit var prefs: SharedPreferences
+    private var uuidUser: String? = ""
     var orderResponseList: MutableList<OrderResponse> = mutableListOf()
 
 
@@ -37,6 +41,8 @@ class OrderFragment : Fragment() {
         _binding = FragmentOrderBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        loadSharedPreferencesData()
+
         loadRecyclerView()
         return root
     }
@@ -44,6 +50,13 @@ class OrderFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun loadSharedPreferencesData() {
+        prefs = context?.getSharedPreferences("PREFERENCE_NAME",
+            AppCompatActivity.MODE_PRIVATE
+        )!!
+        uuidUser = prefs?.getString("userId", "") ?: ""
     }
 
     private fun loadRecyclerView() {
@@ -59,7 +72,6 @@ class OrderFragment : Fragment() {
                     response.body()!!.forEach(orderResponseList::add)
                     recyclerContainer.adapter = OrdersAdapter(orderResponseList)
                 }
-                Toast.makeText(context, "Teste 1", Toast.LENGTH_SHORT).show()
             }
 
             override fun onFailure(call: Call<List<OrderResponse>>, t: Throwable) {
