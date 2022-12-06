@@ -22,5 +22,5 @@ interface Product {
     fun getCategoryProducts(@Path("id") id: String): Call<List<ProductVO>>
 
     @POST("cart/add/{uuid}")
-    fun addCart(@Body body: AddProductCart, @Path("uuid") uuid: String): Call<AddProductCartResponse>
+    fun addCart(@Body body: List<AddProductCart>, @Path("uuid") uuid: String): Call<AddProductCartResponse>
 }

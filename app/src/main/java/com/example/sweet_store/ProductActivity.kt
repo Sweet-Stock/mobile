@@ -17,7 +17,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 class ProductActivity : AppCompatActivity() {
 
     private val retrofit = Rest.getInstanceSweetStock()
@@ -57,19 +56,25 @@ class ProductActivity : AppCompatActivity() {
     }
 
     private fun callServiceAddProduct(uuidUser: String, uuidProduct: String, uuidCompany: String) {
+        println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        println(uuidUser)
+        println(uuidCompany)
+        println(uuidProduct)
 
-        val body = AddProductCart(uuidProduct, uuidCompany, 1)
+        val body = listOf(AddProductCart(uuidProduct, uuidCompany, 1))
         val request = retrofitSweetStore.create(Product::class.java).addCart(body, uuidUser)
         request.enqueue(object : Callback<AddProductCartResponse> {
             override fun onResponse(
                 call: Call<AddProductCartResponse>,
                 response: Response<AddProductCartResponse>
             ) {
-                print(uuidUser)
-                print(response.body()?.message)
-                Toast.makeText(baseContext, "Produto adicionado com sucesso!!", Toast.LENGTH_LONG)
-                    .show()
-
+                if(response.isSuccessful){
+                    print(response.body()?.message)
+                    Toast.makeText(baseContext, "Produto adicionado com sucesso!!", Toast.LENGTH_LONG)
+                        .show()
+                }else{
+                    Toast.makeText(baseContext, "erro. ${response.body()?.message}", Toast.LENGTH_SHORT).show()
+                }
             }
 
             override fun onFailure(call: Call<AddProductCartResponse>, t: Throwable) {
