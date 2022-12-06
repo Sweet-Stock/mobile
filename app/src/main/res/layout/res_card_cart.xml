@@ -75,6 +75,7 @@
                     />
 
                 <ImageView
+                    android:id="@+id/sub_amount_cart_item"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/circle_minus_solid"
@@ -94,6 +95,7 @@
                     />
 
                 <ImageView
+                    android:id="@+id/sum_amount_cart_item"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/circle_plus_solid"
