@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sweet_store.CategoryActivity
 import com.example.sweet_store.cart.Cart
 import com.example.sweet_store.databinding.FragmentHomeBinding
 import com.example.sweet_store.rest.Rest
@@ -39,6 +40,93 @@ class HomeFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
         newArrayList = arrayListOf<ConfectioneryVO>()
+
+        val img01 = binding.img01
+        img01.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "CAKES")
+            startActivity(intent)
+        }
+
+        val img02 = binding.img02
+        img02.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "COOKIES")
+            startActivity(intent)
+        }
+
+        val img03 = binding.img03
+        img03.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "BRIGADEIROS")
+            startActivity(intent)
+        }
+        val img04 = binding.img04
+        img04.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "BROWNIES")
+            startActivity(intent)
+        }
+        val img05 = binding.img05
+        img05.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "CUPCAKES")
+            startActivity(intent)
+        }
+        val img06 = binding.img06
+        img06.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "FINE_SWEETS")
+            startActivity(intent)
+        }
+        val img07 = binding.img07
+        img07.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "DONUTS")
+            startActivity(intent)
+        }
+        val img08 = binding.img08
+        img08.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "MOUSSES")
+            startActivity(intent)
+        }
+        val img09 = binding.img09
+        img09.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "PUDDINGS")
+            startActivity(intent)
+        }
+        val img10 = binding.img10
+        img10.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "ICE_CREAMS")
+            startActivity(intent)
+        }
+        val img11 = binding.img11
+        img11.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "PIES")
+            startActivity(intent)
+        }
+        val img12 = binding.img12
+        img12.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "TRUFFLES")
+            startActivity(intent)
+        }
+        val img13 = binding.img13
+        img13.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "ZERO_SUGAR")
+            startActivity(intent)
+        }
+        val img14 = binding.img14
+        img14.setOnClickListener {
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("category", "ZERO_LACTOSE")
+            startActivity(intent)
+        }
         return binding.root
     }
 

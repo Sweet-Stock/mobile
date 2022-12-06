@@ -12,6 +12,8 @@ import com.example.sweet_store.ui.confectionery.ConfectioneryVO
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CategoryActivity : AppCompatActivity() {
     private val retrofit = Rest.getInstanceSweetStock()
@@ -23,13 +25,14 @@ class CategoryActivity : AppCompatActivity() {
         newArrayList = arrayListOf<ConfectioneryVO>()
 
         this.binding = ActivityCategoryBinding.inflate(layoutInflater)
+        val category: String = intent.getStringExtra("category") ?: ""
         setContentView(binding.root)
         val recyclerView = binding.confectioneryRecyclerContainer
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = CategoryAdapter(ArrayList())
-        callService(recyclerView, "")
-
+        callService(recyclerView, category)
+binding.titleCategory.text = "Confeitarias"
     }
 
 
@@ -44,6 +47,7 @@ class CategoryActivity : AppCompatActivity() {
 
                 if (response.code() == 200) {
                     response.body()!!.forEach {
+
                         newArrayList.add(it)
                         println("Teste   " + newArrayList)
                     }

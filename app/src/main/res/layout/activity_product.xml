@@ -303,6 +303,7 @@
         android:layout_width="248dp"
         android:textSize="20sp"
         android:text="Adicionar no Carrinho"
-        android:background="@color/primary"
+        android:backgroundTint="@color/primary"
+        android:background="@drawable/bt_style"
         android:layout_height="60dp"/>
 </LinearLayout>

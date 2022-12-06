@@ -1,6 +1,7 @@
 package com.example.sweet_store.ui.notifications
 
 import android.app.ActionBar
+import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.content.SharedPreferences
@@ -61,9 +62,12 @@ class NotificationsFragment : Fragment() {
 
         val btLogout = _binding!!.btLogout
         btLogout.setOnClickListener {
-            //      val sharedPreference =  context.getSharedPreferences("PREFERENCE_NAME",context.MODE_PRIVATE)
-            //    var editor = sharedPreference.edit()
-//                editor.remove("username")
+            val sharedPreference =  activity?.baseContext?.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+            val editor = sharedPreference?.edit()
+            editor?.putString("userName", "")
+            editor?.putString("userEmail", "")
+            editor?.putString("userId","")
+            editor?.apply()
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
         }

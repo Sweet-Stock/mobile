@@ -29,8 +29,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun goLogin(view: View) {
-        var email = binding.etEmail
-        var password = binding.etPassword
+        val email = binding.etEmail
+        val password = binding.etPassword
         binding.etPassword
         tryLogin(email, password)
     }
@@ -55,8 +55,8 @@ class LoginActivity : AppCompatActivity() {
     ) {
 
 
-        var email: String = etEmail.text.toString()
-        var password: String = etPassword.text.toString()
+        val email: String = etEmail.text.toString()
+        val password: String = etPassword.text.toString()
 
         if (!isValidEmail(email)) {
             etEmail.error = "Email inválido :("

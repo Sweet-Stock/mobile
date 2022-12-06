@@ -93,7 +93,8 @@
                 android:layout_marginTop="20dp"
                 android:onClick="goLogin"
                 android:text="@string/entry"
-                android:background="@color/primary"
+                android:backgroundTint="@color/primary"
+                android:background="@drawable/bt_style"
                 android:textAlignment="center"
                 android:textColor="#FFFF" />
 
