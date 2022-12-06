@@ -21,6 +21,7 @@ import retrofit2.Response
 class ProductActivity : AppCompatActivity() {
 
     private val retrofit = Rest.getInstanceSweetStock()
+    private val retrofitSweetStore = Rest.getInstance()
     private lateinit var binding: ActivityProductBinding
     lateinit var product: ProductVO
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,11 +31,11 @@ class ProductActivity : AppCompatActivity() {
         setContentView(binding.root)
         val uuid: String = intent.getStringExtra("idProduct") ?: ""
         val uuidConfectionery: String = intent.getStringExtra("idConfectionery") ?: ""
-        val prefs = baseContext?.getSharedPreferences("PREFERENCE_NAME", MODE_PRIVATE)
-        val uuidUser = prefs?.getString("userId", "") ?: ""
+        val prefs = baseContext.getSharedPreferences("PREFERENCE_NAME", MODE_PRIVATE)
+        val uuidUser = prefs.getString("userId", "")
 
         binding.btAdd.setOnClickListener {
-            callServiceAddProduct(uuidUser, uuid, uuidConfectionery)
+            callServiceAddProduct(uuidUser!!, uuid, uuidConfectionery)
         }
         callServiceProduct(uuid)
     }
@@ -58,18 +59,22 @@ class ProductActivity : AppCompatActivity() {
     private fun callServiceAddProduct(uuidUser: String, uuidProduct: String, uuidCompany: String) {
 
         val body = AddProductCart(uuidProduct, uuidCompany, 1)
-        val request = retrofit.create(Product::class.java).addCart(body, uuidUser)
+        val request = retrofitSweetStore.create(Product::class.java).addCart(body, uuidUser)
         request.enqueue(object : Callback<AddProductCartResponse> {
             override fun onResponse(
                 call: Call<AddProductCartResponse>,
                 response: Response<AddProductCartResponse>
             ) {
-                   Toast.makeText(baseContext, "Produto adicionado com sucesso!!", Toast.LENGTH_LONG).show()
+                print(uuidUser)
+                print(response.body()?.message)
+                Toast.makeText(baseContext, "Produto adicionado com sucesso!!", Toast.LENGTH_LONG)
+                    .show()
 
             }
 
             override fun onFailure(call: Call<AddProductCartResponse>, t: Throwable) {
-                 Toast.makeText(baseContext, "Falha ao adicionar produto!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, "Falha ao adicionar produto!", Toast.LENGTH_SHORT)
+                    .show()
             }
 
         })

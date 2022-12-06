@@ -9,7 +9,6 @@
     tools:context=".ui.home.HomeFragment">
 
 
-
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -252,44 +251,41 @@
 
         <TextView
             android:id="@+id/text_home"
-            android:text="@string/confeitarias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginEnd="20dp"
+            android:layout_weight="1"
             android:fontFamily="@font/rubik_medium"
+            android:text="@string/confeitarias"
             android:textAlignment="textStart"
             android:textColor="@color/primary"
             android:textSize="20sp" />
 
 
-
-
     </LinearLayout>
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_go_to_cart_page"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:backgroundTint="@color/secondary"
-        android:layout_gravity="end|bottom"
-        android:onClick="goToCartPage"
-        android:src="@drawable/buy"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="100dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/confectioneryRecyclerContainer"
-        tools:itemCount="3"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        tools:listitem="@layout/card_confectionery"/>
-</FrameLayout>
+        android:layout_height="wrap_content">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_go_to_cart_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="100dp"
+            android:onClick="goToCartPage"
+            android:src="@drawable/buy"
+            app:backgroundTint="@color/secondary" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/confectioneryRecyclerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            tools:itemCount="3"
+            tools:listitem="@layout/card_confectionery" />
+    </FrameLayout>
 
 
 </LinearLayout>
