@@ -53,7 +53,8 @@ class OrderFragment : Fragment() {
     }
 
     private fun loadSharedPreferencesData() {
-        prefs = context?.getSharedPreferences("PREFERENCE_NAME",
+        prefs = context?.getSharedPreferences(
+            "PREFERENCE_NAME",
             AppCompatActivity.MODE_PRIVATE
         )!!
         uuidUser = prefs?.getString("userId", "") ?: ""
@@ -64,10 +65,13 @@ class OrderFragment : Fragment() {
         recyclerContainer.layoutManager = LinearLayoutManager(context)
         val request =
             retrofit.create(OrderService::class.java)
-                .getAllOrders( "568571f3-e07f-48e8-b891-c35510de98fe")
+                .getAllOrders(uuidUser ?: "")
 
         request.enqueue(object : Callback<List<OrderResponse>> {
-            override fun onResponse(call: Call<List<OrderResponse>>, response: Response<List<OrderResponse>>) {
+            override fun onResponse(
+                call: Call<List<OrderResponse>>,
+                response: Response<List<OrderResponse>>
+            ) {
                 if (response.code() == 200) {
                     response.body()!!.forEach(orderResponseList::add)
                     recyclerContainer.adapter = OrdersAdapter(orderResponseList)

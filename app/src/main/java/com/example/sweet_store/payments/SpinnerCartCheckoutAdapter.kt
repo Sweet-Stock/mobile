@@ -15,9 +15,7 @@ import com.example.sweet_store.model.payment_method.PaymentResponse
 class SpinnerCartCheckoutAdapter(
     private var context: Context,
     private var paymentResponseList: MutableList<PaymentResponse>,
-) :
-    BaseAdapter() {
-
+) : BaseAdapter() {
     var brands = mapOf<String, Int>(
         "Elo" to R.drawable.flag_elo,
         "American Express" to R.drawable.flag_american_express,
@@ -33,11 +31,11 @@ class SpinnerCartCheckoutAdapter(
     }
 
     override fun getItem(i: Int): Any? {
-        return null
+        return paymentResponseList[i]
     }
 
     override fun getItemId(i: Int): Long {
-        return 0
+        return paymentResponseList[i].idPayment!!
     }
 
     @RequiresApi(Build.VERSION_CODES.N)

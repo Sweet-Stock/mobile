@@ -1,5 +1,6 @@
 package com.example.sweet_store.cart
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
@@ -7,12 +8,19 @@ import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sweet_store.HomeActivity
+import com.example.sweet_store.MainActivity
 import com.example.sweet_store.R
 import com.example.sweet_store.databinding.ActivityCheckoutCartBinding
+import com.example.sweet_store.model.orders.OrderRequest
+import com.example.sweet_store.model.orders.OrderResponse
 import com.example.sweet_store.model.payment_method.PaymentResponse
+import com.example.sweet_store.payments.PaymentMethod
 import com.example.sweet_store.payments.SpinnerCartCheckoutAdapter
 import com.example.sweet_store.rest.Rest
+import com.example.sweet_store.service.OrderService
 import com.example.sweet_store.service.PaymentService
+import com.example.sweet_store.ui.orders.OrderFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -67,6 +75,8 @@ class CheckoutCart : AppCompatActivity() {
                 if (response.code() == 200) {
                     paymentResponseList = response.body()?.toMutableList() ?: mutableListOf()
                     setupSpinnerPaymentMethod(spinnerPaymentMethod = binding.cartCheckoutPaymentMethod)
+                    
+                    setupBuyFinish()
                 }
             }
 
@@ -77,6 +87,29 @@ class CheckoutCart : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        })
+    }
+
+    private fun setupBuyFinish() {
+        binding.btnFinishCheckoutCart.setOnClickListener(View.OnClickListener {
+            var idPayment = binding.cartCheckoutPaymentMethod.selectedItemId
+            retrofit.create(OrderService::class.java)
+                .saveOrder(OrderRequest(uuidUser = uuidUser ?: "", idPayment = idPayment))
+                .enqueue(object : Callback<OrderResponse> {
+                    override fun onResponse(
+                        call: Call<OrderResponse>,
+                        response: Response<OrderResponse>
+                    ) {
+                        val orders = Intent(this@CheckoutCart, MainActivity::class.java)
+                        startActivity(orders)
+                    }
+
+                    override fun onFailure(call: Call<OrderResponse>, t: Throwable) {
+                        println("Falha no pagamento. Motivo: ${t.message}")
+                        Toast.makeText(this@CheckoutCart, "Falha no pagamento. Motivo: ${t.message}", Toast.LENGTH_SHORT).show()
+                    }
+
+                })
         })
     }
 

@@ -54,6 +54,7 @@
     <string name="gramas">g</string>
     <string name="frete">Frete</string>
     <string name="subtotal">Subtotal</string>
+    <string name="finalizar_compra">Finalizar Compra</string>
     <string-array name="PaymentMethod">
         <item key="DEBIT">Débito</item>
         <item key="CREDIT">Crédito</item>

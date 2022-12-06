@@ -1,6 +1,7 @@
 package com.example.sweet_store.payments
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -24,7 +25,8 @@ import java.time.LocalDate
 class AddCreditCard : AppCompatActivity() {
     private val retrofit = Rest.getInstance()
     private lateinit var binding: ActivityAddCreditCardBinding
-    var userId = "568571f3-e07f-48e8-b891-c35510de98fe"
+    private var uuidUser: String? = ""
+    private lateinit var prefs: SharedPreferences
 
     private lateinit var spinnerBrand: Spinner
     private lateinit var spinnerMethod: Spinner
@@ -47,13 +49,21 @@ class AddCreditCard : AppCompatActivity() {
         R.drawable.flag_mastercard
     )
 
+    private fun loadSharedPreferencesData() {
+        prefs = this@AddCreditCard.getSharedPreferences(
+            "PREFERENCE_NAME",
+            AppCompatActivity.MODE_PRIVATE
+        )
+        uuidUser = prefs?.getString("userId", "") ?: ""
+    }
+
     private var brands = mutableListOf("Elo", "American Express", "Visa", "MasterCard")
     private var methods = mutableListOf("Débito", "Crédito")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_credit_card)
-
+        loadSharedPreferencesData()
         binding = ActivityAddCreditCardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -248,7 +258,10 @@ class AddCreditCard : AppCompatActivity() {
 
             override fun onFailure(call: Call<PaymentResponse>, t: Throwable) {
                 val errorPage = Intent(this@AddCreditCard, ActivityErrorPage::class.java)
-                errorPage.putExtra("error", "Falha ao cadastrar forma de pagamento. Motivo: ${t.message}")
+                errorPage.putExtra(
+                    "error",
+                    "Falha ao cadastrar forma de pagamento. Motivo: ${t.message}"
+                )
                 startActivity(errorPage)
             }
         })
@@ -264,7 +277,7 @@ class AddCreditCard : AppCompatActivity() {
     private fun generatePayment(): PaymentRequest {
 
         return PaymentRequest(
-            uuidUser = userId,
+            uuidUser = uuidUser ?: "",
             cardNumber = etNumberCreditCard.text.toString(),
             expirationDate = etExpirationDate.text.toString(),
             cardHolderName = etNameCard.text.toString().trim(),
