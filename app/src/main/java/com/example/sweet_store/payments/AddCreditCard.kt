@@ -11,6 +11,7 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sweet_store.ActivityErrorPage
+import com.example.sweet_store.HomeActivity
 import com.example.sweet_store.R
 import com.example.sweet_store.databinding.ActivityAddCreditCardBinding
 import com.example.sweet_store.model.payment_method.PaymentRequest
@@ -251,8 +252,8 @@ class AddCreditCard : AppCompatActivity() {
                 response: Response<PaymentResponse>
             ) {
                 if (response.isSuccessful) {
-                    val paymentMethods = Intent(this@AddCreditCard, PaymentMethod::class.java)
-                    startActivity(paymentMethods)
+                    val home = Intent(this@AddCreditCard, HomeActivity::class.java)
+                    startActivity(home)
                 }
             }
 
